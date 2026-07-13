@@ -16,8 +16,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import { TbLayoutSidebarRightCollapse } from "react-icons/tb";
-import { BiFilterAlt } from "react-icons/bi";
+import { PanelRightClose } from "lucide-react";
+import { Funnel } from "lucide-react";
 import { toRialMoney } from "../utils";
 
 export function ProductSidebar() {
@@ -28,7 +28,7 @@ export function ProductSidebar() {
     return (
       <Button onClick={() => setIsOpen(true)} variant={"filter"} size={"xl"}>
         <div className="flex items-center gap-x-2">
-          <BiFilterAlt className="size-5" />
+          <Funnel className="size-5" />
           <p className="text-base">فیلترها</p>
         </div>
       </Button>
@@ -40,7 +40,7 @@ export function ProductSidebar() {
       <div className="pb-2 flex justify-between items-center">
         <p className="text-base text-gray1">فیلتر ها</p>
         <Button variant={"link"} size={"icon-lg"} onClick={() => setIsOpen(false)}>
-          <TbLayoutSidebarRightCollapse className="size-6 text-gray3" />
+          <PanelRightClose className="size-6 text-gray3" />
         </Button>
       </div>
       <Separator />
@@ -54,14 +54,14 @@ export function ProductSidebar() {
               <p className="text-sm text-gray7">دارای رنگبندی</p>
               <Checkbox
                 defaultChecked
-                id="finder-pref-9k2-external-disks-1yg-checkbox"
+                id="filter-color-checkbox"
                 name="finder-pref-9k2-external-disks-1yg-checkbox"
               />
             </div>
             <div className="flex justify-end gap-x-2">
               <p className="text-sm text-gray7">گارانتی</p>
               <Checkbox
-                id="finder-pref-9k2-external-disks-1yg-checkbox"
+                id="filter-warranty-checkbox"
                 name="finder-pref-9k2-external-disks-1yg-checkbox"
               />
             </div>
@@ -76,7 +76,7 @@ export function ProductSidebar() {
               <div className=" flex justify-center items-center">
                 <div className="flex justify-center items-center gap-x-2 border rounded-md h-8 w-[50%]">
                   <p className="text-sm text-gray7 pt-4">میلیون</p>
-                  <p className="text-sm text-gray7">{toRialMoney(value * 10000000)}</p>
+                  <p className="text-sm text-gray7">{toRialMoney(value * 1000000)}</p>
                 </div>
               </div>
 
@@ -87,7 +87,7 @@ export function ProductSidebar() {
                 value={[value]}
                 id="slider-demo-temperature"
                 min={0}
-                onValueChange={(value: any) => setValue(value[0])}
+                onValueChange={(value: any) => setValue(value)}
                 className="mx-auto w-full max-w-xs py-2"
               />
 
@@ -117,35 +117,35 @@ export function ProductSidebar() {
             <div className="flex justify-end gap-x-2 pt-4">
               <p className="text-sm text-gray7">تکنو</p>
               <Checkbox
-                id="finder-pref-9k2-external-disks-1yg-checkbox"
+                id="filter-brand-techno-checkbox"
                 name="finder-pref-9k2-external-disks-1yg-checkbox"
               />
             </div>
             <div className="flex justify-end gap-x-2">
               <p className="text-sm text-gray7">دیپوینت</p>
               <Checkbox
-                id="finder-pref-9k2-external-disks-1yg-checkbox"
+                id="filter-brand-dupont-checkbox"
                 name="finder-pref-9k2-external-disks-1yg-checkbox"
               />
             </div>
             <div className="flex justify-end gap-x-2">
               <p className="text-sm text-gray7">تفلون</p>
               <Checkbox
-                id="finder-pref-9k2-external-disks-1yg-checkbox"
+                id="filter-brand-teflon-checkbox"
                 name="finder-pref-9k2-external-disks-1yg-checkbox"
               />
             </div>
             <div className="flex justify-end gap-x-2">
               <p className="text-sm text-gray7">چدن</p>
               <Checkbox
-                id="finder-pref-9k2-external-disks-1yg-checkbox"
+                id="filter-brand-castIron-checkbox"
                 name="finder-pref-9k2-external-disks-1yg-checkbox"
               />
             </div>
             <div className="flex justify-end gap-x-2">
               <p className="text-sm text-gray7">کنوود</p>
               <Checkbox
-                id="finder-pref-9k2-external-disks-1yg-checkbox"
+                id="filter-brand-kenwood-checkbox"
                 name="finder-pref-9k2-external-disks-1yg-checkbox"
               />
             </div>

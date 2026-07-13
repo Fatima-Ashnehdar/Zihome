@@ -4,10 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-body {
-  direction: rtl;
-}
-
 @theme inline {
   --color-switch: rgba(220, 38, 85, 1);
   --color-red1: rgba(248, 113, 113, 1);

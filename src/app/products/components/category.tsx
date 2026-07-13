@@ -1,6 +1,7 @@
 /** @format */
 import { CategoryCardProps } from "../types";
 import { CategoryCard } from "./categoryCard";
+
 export interface CategoryProps {
   category: CategoryCardProps[];
 }

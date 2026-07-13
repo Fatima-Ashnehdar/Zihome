@@ -9,6 +9,8 @@ import { StarCheckIcon } from "lucide-react";
 
 import { ProductCardProps } from "../types";
 
+import { toRialMoney } from "../utils";
+
 export function ProductCard({
   name,
   photo,
@@ -48,10 +50,10 @@ export function ProductCard({
         </div>
       </div>
       <div className="flex flex-col gap-y-2 w-full">
-        <p className="line-through text-gray8 text-sm text-left">{previousPrice}</p>
+        <p className="line-through text-gray8 text-sm text-left">{toRialMoney(previousPrice)}</p>
         <div className="flex justify-between">
           <p className="text-sm text-white bg-red1 rounded-full px-3.5 py-1">{discount}</p>
-          <p className="text-gray1 text-base text-left">{currentPrice}</p>
+          <p className="text-gray1 text-base text-left">{toRialMoney(currentPrice)}</p>
         </div>
       </div>
     </div>

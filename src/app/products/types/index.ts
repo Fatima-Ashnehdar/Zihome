@@ -5,8 +5,8 @@ export interface ProductCardProps {
   name: string;
   photo: StaticImageData;
   score: string;
-  currentPrice: string;
-  previousPrice: string;
+  currentPrice: number;
+  previousPrice: number;
   model: string;
   discount: string;
 }

@@ -1,5 +1,7 @@
 /** @format */
 
+// TODO: wire filters & tab sorting
+
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -18,17 +20,17 @@ export function ProductTab({ products }: ProductFilterProps) {
           <div className="flex items-center gap-x-2">
             <span className="inline-block w-1 h-10 bg-red1 rounded-tr-4xl rounded-br-4xl"></span>
             <TabsList variant="line" className="flex gap-x-8">
-              <TabsTrigger value="decoration" className="text-base text-gary1">
-                دکوراسیون
+              <TabsTrigger value="decoration">
+                <p className="text-base text-gary1"> دکوراسیون</p>
               </TabsTrigger>
-              <TabsTrigger value="latest" className="text-base text-gary1">
-                جدیدترین
+              <TabsTrigger value="latest">
+                <p className="text-base text-gary1"> جدیدترین</p>
               </TabsTrigger>
-              <TabsTrigger value="best-selling" className="text-base text-gary1">
-                پرفروش ترین
+              <TabsTrigger value="best-selling">
+                <p className="text-base text-gary1"> پرفروش ترین</p>
               </TabsTrigger>
-              <TabsTrigger value="buyers-recommendations" className="text-base text-gary1">
-                پیشنهاد خریداران
+              <TabsTrigger value="buyers-recommendations">
+                <p className="text-base text-gary1"> پیشنهاد خریداران</p>
               </TabsTrigger>
             </TabsList>
           </div>
