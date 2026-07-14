@@ -1,34 +1,31 @@
 /** @format */
 
-import { ProductFilter } from "./components/filter";
-import { ProductList } from "./components/list";
+import { ProductCategory } from "./components/category";
+import { ProductTab } from "./components/tabs";
+import { ProductDescription } from "./components/description";
+import { ProductSidebar } from "./components/sidebar";
 
+import { ProductCardProps, CategoryCardProps } from "./types";
+
+import { mockCategory, mockProducts } from "./data/mock-products";
+
+export interface ProductPageProps {
+  products: ProductCardProps[];
+  category: CategoryCardProps[];
+}
 export default function ProductsPage() {
   return (
-    <div>
-      <ProductFilter filters={["all", "electronics", "clothing", "books"]} />
-      <ProductList
-        products={[
-          {
-            id: "1",
-            name: "Product 1",
-            price: 100,
-            image: "https://picsum.photos/200/300",
-          },
-          {
-            id: "2",
-            name: "Product 2",
-            price: 200,
-            image: "https://picsum.photos/200/300",
-          },
-          {
-            id: "3",
-            name: "Product 3",
-            price: 300,
-            image: "https://picsum.photos/200/300",
-          },
-        ]}
-      />
+    <div dir="rtl" className="px-30  py-8 flex flex-col gap-y-12 bg-gray10">
+      <ProductCategory category={mockCategory} />
+      <div className="flex justify-between gap-x-7">
+        <div>
+          <ProductSidebar />
+        </div>
+        <div className="w-full">
+          <ProductTab products={mockProducts} />
+        </div>
+      </div>
+      <ProductDescription />
     </div>
   );
 }
