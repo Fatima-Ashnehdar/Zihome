@@ -87,7 +87,12 @@ export function ProductSidebar() {
                 value={[value]}
                 id="slider-demo-temperature"
                 min={0}
-                onValueChange={(value: any) => setValue(value)}
+                onValueChange={(nextValue) => {
+                  const next = Array.isArray(nextValue) ? nextValue[0] : nextValue;
+                  if (typeof next === "number") {
+                    setValue(next);
+                  }
+                }}
                 className="mx-auto w-full max-w-xs py-2"
               />
 
