@@ -16,7 +16,7 @@ export function CategoryCard({ name, image }: CategoryCardProps) {
           <Image quality={100} width={180} height={180} alt={name} src={image} />
         </div>
       )}
-      <h6 className="text-gray2 text-base">{name}</h6>
+      <h6 className="text-gray-950 text-base">{name}</h6>
     </Link>
   );
 }
