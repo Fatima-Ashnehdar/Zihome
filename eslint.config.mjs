@@ -10,6 +10,22 @@ const eslintConfig = defineConfig([
     rules: {
       //general laws
       "no-console": ["warn", { allow: ["warn", "error"] }],
+      // any error
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-non-null-assertion": "error",
+      "@typescript-eslint/no-empty-interface": "error",
+      "@typescript-eslint/no-inferrable-types": "error",
+      "@typescript-eslint/ban-ts-comment": [
+        "error",
+        {
+          "ts-expect-error": "allow-with-description",
+          "ts-ignore": "allow-with-description",
+        },
+      ],
+      "@typescript-eslint/array-type": ["error", { default: "array" }],
+      "@typescript-eslint/prefer-optional-chain": "error",
+      "@typescript-eslint/no-unnecessary-type-assertion": "error",
       "no-debugger": "error",
       eqeqeq: ["error", "always"],
       "no-var": "error",

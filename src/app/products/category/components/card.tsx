@@ -7,11 +7,11 @@ import { Toggle } from "@/components/ui/toggle";
 
 import { StarCheckIcon } from "lucide-react";
 
-import { ProductCardProps } from "../types";
+import { CategoriesCardProps } from "../types/index";
 
-import { toRialMoney } from "../utils";
+import { toRialMoney } from "../../utils";
 
-export function ProductCard({
+export function CategoryCard({
   name,
   photo,
   score,
@@ -19,7 +19,7 @@ export function ProductCard({
   previousPrice,
   currentPrice,
   discount,
-}: ProductCardProps) {
+}: CategoriesCardProps) {
   return (
     <div
       className="flex flex-col gap-7 justify-center items-center max-w-sm shadow-card border-2 rounded-xl px-4 py-6 bg-white 
