@@ -2,12 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 
-export function PostQuestions() {
-  const postQuestions = {
-    title: "سوالات خود را با ما در میان بگذارید",
-    paragraph: "کارشناسان ما  آماده پاسخگویی به سوالات شما هستند.",
-  };
+const postQuestions = {
+  title: "سوالات خود را با ما در میان بگذارید",
+  paragraph: "کارشناسان ما  آماده پاسخگویی به سوالات شما هستند.",
+};
 
+export function PostQuestions() {
   return (
     <div className="sticky top-0 right-0 w-full">
       <div className="flex flex-col  gap-y-10 border rounded-2xl px-5 py-6">

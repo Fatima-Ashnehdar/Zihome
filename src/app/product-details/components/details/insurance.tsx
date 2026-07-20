@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { ChevronLeft } from "lucide-react";
 
-export function InsuranceDetails() {
-  const insuranceDetails = {
-    title: "بیمه به کالا اضافه شد",
-    details: "نمایش جزئیات",
-    currentPrice: 75000,
-    PreviousPrice: 95000,
-  };
+const insuranceDetails = {
+  title: "بیمه به کالا اضافه شد",
+  details: "نمایش جزئیات",
+  currentPrice: 75000,
+  PreviousPrice: 95000,
+};
 
+export function InsuranceDetails() {
   return (
     <div className="flex flex-col gap-y-6 border border-gray-200 rounded-2xl px-5 pt-5 pb-3 bg-white">
       <div className="flex justify-between">

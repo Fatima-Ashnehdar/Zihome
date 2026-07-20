@@ -8,21 +8,21 @@ import { SelectBox } from "./selectBox";
 
 import { toRialMoney } from "@/app/products/utils";
 
+const features = {
+  title: "پلوپز ۸ نفره پارس خزر مدل Tyan-181",
+  score: 3.4,
+  color: "طرح و رنگ بندی",
+  warranty: "گارانتی",
+  mainFeatures: "ویژگی های اصلی",
+};
+
+const mainFeatures = [
+  { id: 1, name: "ظرفیت", capacity: "۱.۸ لیتر" },
+  { id: 2, name: "ظرفیت به نفر", capacity: "۸ نفره" },
+  { id: 3, name: "جنس", capacity: "تفلون" },
+];
+
 export function FeaturesDetails() {
-  const features = {
-    title: "پلوپز ۸ نفره پارس خزر مدل Tyan-181",
-    score: 3.4,
-    color: "طرح و رنگ بندی",
-    warranty: "گارانتی",
-    mainFeatures: "ویژگی های اصلی",
-  };
-
-  const mainFeatures = [
-    { id: 1, name: "ظرفیت", capacity: "۱.۸ لیتر" },
-    { id: 2, name: "ظرفیت به نفر", capacity: "۸ نفره" },
-    { id: 3, name: "جنس", capacity: "تفلون" },
-  ];
-
   return (
     <div className="flex flex-col gap-y-6 w-full">
       <div>

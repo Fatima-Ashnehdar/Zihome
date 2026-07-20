@@ -4,16 +4,16 @@ import { toRialMoney } from "@/app/products/utils";
 
 import { Button } from "@/components/ui/button";
 
-export function QuestionsTabs() {
-  const questionTabs = [
-    { id: 1, name: "جدیدترین" },
-    { id: 2, name: "بیشترین پاسخ" },
-  ];
+const questionTabs = [
+  { id: 1, name: "جدیدترین" },
+  { id: 2, name: "بیشترین پاسخ" },
+];
 
+export function QuestionsTabs() {
   return (
     <div className="flex justify-between items-center">
       <div className="flex items-center gap-x-2">
-        <span className="inline-block w-1 h-10 bg-red-500 rounded-tr-4xl rounded-br-4xl"></span>
+        <span className="inline-block w-1 h-10 bg-red-500 rounded-tr-4xl rounded-br-4xl" />
         <div className="flex gap-x-6">
           {questionTabs.map((item) => (
             <Button key={item.id} variant={"ghost"}>

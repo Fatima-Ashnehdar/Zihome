@@ -5,10 +5,11 @@ import { ViewpointList } from "./list";
 import { mockViewPoints } from "@/app/product-details/data/mock-product-details";
 import { ViewpointsTabs } from "./tabs";
 
+const viewPoints = {
+  title: "دیدگاه خریداران",
+};
+
 export function Viewpoint() {
-  const viewPoints = {
-    title: "دیدگاه خریداران",
-  };
   return (
     <div className="flex flex-col gap-y-6">
       <div className="bg-gray-50 rounded-2xl px-8 py-4">

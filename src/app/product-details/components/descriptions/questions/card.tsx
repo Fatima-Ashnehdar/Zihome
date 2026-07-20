@@ -1,6 +1,7 @@
 /**@format */
 
 import { QuestionsCardProps } from "@/app/product-details/types";
+
 import { Button } from "@/components/ui/button";
 
 import { MessageCircleMore } from "lucide-react";

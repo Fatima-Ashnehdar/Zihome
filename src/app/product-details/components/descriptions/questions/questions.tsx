@@ -6,11 +6,11 @@ import { QuestionsTabs } from "./tabs";
 
 import { mockQuestions } from "@/app/product-details/data/mock-product-details";
 
-export function Questions() {
-  const question = {
-    title: "پرسش ها",
-  };
+const question = {
+  title: "پرسش ها",
+};
 
+export function Questions() {
   return (
     <div className="flex flex-col gap-y-6">
       <div className="bg-gray-50 rounded-2xl px-8 py-4">

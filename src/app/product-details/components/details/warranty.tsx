@@ -7,14 +7,14 @@ import { Separator } from "@/components/ui/separator";
 
 import { CircleStar, Palette } from "lucide-react";
 
-export function Warranty() {
-  const warrantyDetails = {
-    title: "گارانتی اصالت و سلامت فیزیکی کالا",
-    color: "سفید",
-    currentPrice: 86000000,
-    PreviousPrice: 100000000,
-  };
+const warrantyDetails = {
+  title: "گارانتی اصالت و سلامت فیزیکی کالا",
+  color: "سفید",
+  currentPrice: 86000000,
+  PreviousPrice: 100000000,
+};
 
+export function Warranty() {
   return (
     <div className="flex flex-col gap-y-6 border border-gray-200 rounded-2xl px-5 py-6 h-fit bg-white">
       <div className="flex items-center gap-x-2">
