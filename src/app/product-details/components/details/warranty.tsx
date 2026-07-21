@@ -2,8 +2,9 @@
 
 import { toRialMoney } from "@/app/products/utils";
 
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+
+import { ShoppingCardModal } from "../modal/shoppingCardModal";
 
 import { CircleStar, Palette } from "lucide-react";
 
@@ -41,9 +42,7 @@ export function Warranty() {
           <p className="text-base text-gray-900">{toRialMoney(warrantyDetails.currentPrice)}</p>
         </div>
       </div>
-      <Button variant={"shoppingCard"} size={"xl"}>
-        <p className="text-sm font-normal">افزودن به سبد خرید</p>
-      </Button>
+      <ShoppingCardModal />
     </div>
   );
 }

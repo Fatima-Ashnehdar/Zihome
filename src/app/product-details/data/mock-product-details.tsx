@@ -1,6 +1,11 @@
 /** @format */
 
-import { ChevronDown, ChevronLeft, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronLeft } from "lucide-react";
+
+import photo1 from "../../../../public/pictures/details/pic-62.png";
+import photo2 from "../../../../public/pictures/details/pic-63.png";
+import photo3 from "../../../../public/pictures/details/pic-64.png";
+import photo4 from "../../../../public/pictures/details/pic-65.png";
 
 export const mockViewPoints = [
   {
@@ -64,5 +69,44 @@ export const mockQuestions = [
     question: "سلام میشه کیک داخلش درست کرد؟؟",
     answer: "مشاهده پاسخ های دیگر",
     icon: <ChevronDown className="text-gray-600 size-3" />,
+  },
+];
+
+export const mockProductsSimilar = [
+  {
+    id: 1,
+    photo: photo3,
+    name: "اجاق گاز تکنو",
+    score: 4.3,
+    previousPrice: 2400000,
+    currentPrice: 1640000,
+    model: "N-LITL 203 aIRIINKS",
+  },
+  {
+    id: 2,
+    photo: photo1,
+    name: "قهوه ساز نسپرسو",
+    score: 4.3,
+    previousPrice: 2400000,
+    currentPrice: 1640000,
+    model: "N-LITL 203 aIRIINKS",
+  },
+  {
+    id: 3,
+    photo: photo4,
+    name: "ست بشقاب سرامیکی سرو",
+    score: 4.3,
+    previousPrice: 2400000,
+    currentPrice: 1640000,
+    model: "N-LITL 203 aIRIINKS",
+  },
+  {
+    id: 4,
+    photo: photo2,
+    name: "سرخ کن بدون روغن",
+    score: 4.3,
+    previousPrice: 2400000,
+    currentPrice: 1640000,
+    model: "N-LITL 203 aIRIINKS",
   },
 ];

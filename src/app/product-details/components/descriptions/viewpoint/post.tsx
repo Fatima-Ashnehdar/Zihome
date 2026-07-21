@@ -1,8 +1,8 @@
 /**@format */
 
-import { Button } from "@/components/ui/button";
-
 import { Star } from "lucide-react";
+
+import { ViewPointModal } from "../../modal/viewPointModal";
 
 const postViewPoint = {
   title: "دیدگاه خود را با ما در میان بگذارید",
@@ -39,9 +39,7 @@ export function PostViewPoint() {
           </div>
         </div>
         <p className="text-base text-gray-950">{postViewPoint.postOpinion}</p>
-        <Button variant={"outline"} size={"xl"}>
-          <p>ثبت دیدگاه</p>
-        </Button>
+        <ViewPointModal />
       </div>
     </div>
   );

@@ -1,4 +1,15 @@
+import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
+
+export interface ProductsSimilarCardProps {
+  id: number;
+  photo: StaticImageData;
+  name: string;
+  score: number;
+  model: string;
+  previousPrice: number;
+  currentPrice: number;
+}
 
 export interface ViewPointCardProps {
   id: number;
@@ -13,6 +24,11 @@ export interface ViewPointCardProps {
 export interface QuestionsCardProps {
   id: number;
   question: string;
+  answer: string;
+  icon: ReactNode;
+}
+
+export interface AnswerModalProps {
   answer: string;
   icon: ReactNode;
 }
