@@ -5,11 +5,11 @@ import { toRialMoney } from "@/app/products/utils";
 import { Button } from "@/components/ui/button";
 
 import { Plus } from "lucide-react";
-import { ChevronLeft } from "lucide-react";
+
+import { InsuranceModal } from "../modal/InsuranceModal";
 
 const insuranceDetails = {
   title: "بیمه به کالا اضافه شد",
-  details: "نمایش جزئیات",
   currentPrice: 75000,
   PreviousPrice: 95000,
 };
@@ -17,12 +17,9 @@ const insuranceDetails = {
 export function InsuranceDetails() {
   return (
     <div className="flex flex-col gap-y-6 border border-gray-200 rounded-2xl px-5 pt-5 pb-3 bg-white">
-      <div className="flex justify-between">
+      <div className="flex items-center justify-between">
         <p className="text-base text-gray-900">{insuranceDetails.title}</p>
-        <div className="flex items-center gap-x-3">
-          <p className="text-sm text-blue-800 font-medium">{insuranceDetails.details}</p>
-          <ChevronLeft className="size-3 text-blue-800" />
-        </div>
+        <InsuranceModal />
       </div>
       <div className="flex justify-between items-center">
         <Button variant={"outline"} size={"xl"}>

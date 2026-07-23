@@ -4,6 +4,7 @@ import { Descriptions } from "./components/descriptions/descriptions";
 import { Warranty } from "./components/details/warranty";
 import { Details } from "./components/details/details";
 import { InsuranceDetails } from "./components/details/insurance";
+import { ProductsSimilar } from "./components/products-similar/productsSimilar";
 
 export default function ProductDetails() {
   return (
@@ -21,6 +22,7 @@ export default function ProductDetails() {
           <Warranty />
         </div>
       </div>
+      <ProductsSimilar />
       <Descriptions />
     </div>
   );
