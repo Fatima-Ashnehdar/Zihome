@@ -15,20 +15,9 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 
-import mainPhoto from "../../../../../public/pictures/details/main-pic.png";
+import { mockShoppingCardModal } from "../../data/mock-product-details";
 
 import { Trash2 } from "lucide-react";
-
-const shoppingCardModal = {
-  title: "کالا به سبد خرید شما اضافه شد",
-  name: "پلوپز ۸ نفره پارس خزر مدل Tyan-181",
-  price: 86000000,
-  color: "سفید",
-  description:
-    "باتوجه به بالا بودن ارزش کالا خریداری شده ،بیمه گلدیران برای شما۷۵.۰۰۰ تومان فعال شد.",
-  addInsurance: "بیمه به کالا اضافه شده",
-  image: mainPhoto,
-};
 
 export function ShoppingCardModal() {
   return (
@@ -44,24 +33,24 @@ export function ShoppingCardModal() {
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle>
-              <p className="text-base text-gray-950 font-normal">{shoppingCardModal.title}</p>
+              <p className="text-base text-gray-950 font-normal">{mockShoppingCardModal.title}</p>
             </DialogTitle>
             <Separator className="my-2" />
           </DialogHeader>
 
           <div className="flex items-center gap-x-5 my-5">
             <div className="w-[28%]">
-              <Image alt="product-photo" src={shoppingCardModal.image} />
+              <Image alt="product-photo" src={mockShoppingCardModal.image} />
             </div>
             <div className="flex flex-col gap-y-4 w-full ">
-              <p>{shoppingCardModal.name}</p>
+              <p>{mockShoppingCardModal.name}</p>
               <div className="flex justify-between">
                 <div className="flex items-center gap-x-2 bg-gray-100 rounded-full py-1 px-1 w-22">
                   <span className="inline-block w-5 h-5 bg-white rounded-full" />
                   <p className="text-xs text-gray-700">سفید</p>
                 </div>
                 <p className="text-base text-gray-900">
-                  {toRialMoney(shoppingCardModal.price)} تومان
+                  {toRialMoney(mockShoppingCardModal.price)} تومان
                 </p>
               </div>
             </div>
@@ -70,7 +59,7 @@ export function ShoppingCardModal() {
           <DialogFooter>
             <div className="flex flex-col gap-y-6">
               <div className="flex items-center justify-between">
-                <p className="text-sm text-green-700">{shoppingCardModal.addInsurance}</p>
+                <p className="text-sm text-green-700">{mockShoppingCardModal.addInsurance}</p>
                 <Button variant="destructive" size="xl" className="pt-1">
                   <div className="flex items-center gap-x-2">
                     <Trash2 className="size-4" />
@@ -79,7 +68,7 @@ export function ShoppingCardModal() {
                 </Button>
               </div>
               <div className="flex flex-col gap-y-3">
-                <p className="text-sm text-gray-900">{shoppingCardModal.description}</p>
+                <p className="text-sm text-gray-900">{mockShoppingCardModal.description}</p>
               </div>
               <Button variant="shoppingCard" size="xl" className="mt-3">
                 <p> برو به سبد خرید</p>

@@ -1,6 +1,5 @@
 /**@format */
 
-import { Button } from "@/components/ui/button";
 import { QuestionModal } from "../../modal/questionModal";
 
 const postQuestions = {
@@ -16,10 +15,6 @@ export function PostQuestions() {
           <p className="text-base text-gray-950">{postQuestions.title}</p>
           <p className="text-sm text-gray-950">{postQuestions.paragraph}</p>
         </div>
-
-        {/* <Button variant={"outline"} size={"xl"}>
-          <p>ثبت دیدگاه</p>
-        </Button> */}
         <QuestionModal />
       </div>
     </div>

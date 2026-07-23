@@ -32,3 +32,7 @@ export interface AnswerModalProps {
   answer: string;
   icon: ReactNode;
 }
+
+export interface ImageGalleryProps {
+  picture: StaticImageData;
+}
