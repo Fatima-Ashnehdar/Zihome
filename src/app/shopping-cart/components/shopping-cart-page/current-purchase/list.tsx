@@ -1,6 +1,6 @@
 /**@format */
 
-import { ProductsListProps } from "../../types";
+import { ProductsListProps } from "../../../types";
 
 import { ProductsCard } from "./card";
 

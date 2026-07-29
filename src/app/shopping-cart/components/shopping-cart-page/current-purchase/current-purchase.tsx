@@ -4,7 +4,7 @@ import { Insurance } from "./insurance";
 import { TotalPrice } from "./totalPrice";
 import { ProductsList } from "./list";
 
-import { mockProducts } from "../../data/mock-shopping-cart";
+import { mockProducts } from "../../../data/mock-shopping-cart";
 
 export function CurrentPurchase() {
   return (

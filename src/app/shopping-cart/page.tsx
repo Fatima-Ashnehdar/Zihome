@@ -1,24 +1,21 @@
+"use client";
+
 /**@format */
 
-import { Separator } from "@/components/ui/separator";
-import { ShoppingCart } from "lucide-react";
-import { ShoppingCartTabs } from "./components/tabs";
+// StateManagement
 
-const shoppingCard = {
-  title: "سبد خرید",
-};
+import { useState } from "react";
+
+import { ShoppingCartPage } from "./components/shopping-cart-page/ShoppingCartPage";
+import { OrderDeliveryAddressPage } from "./components/order-delivery-address/orderDeliveryAddressPage";
 
 export default function ShoppingCartHome() {
+  const [page, setPage] = useState<string>("order-delivery-address");
+
   return (
-    <div dir="rtl" className="flex flex-col gap-y-12 px-30 h-screen py-8 bg-nutral-50">
-      <div className="flex flex-col gap-y-7">
-        <div className="flex gap-x-3">
-          <ShoppingCart className="text-gray-600" />
-          <p className="text-base text-gray-900">{shoppingCard.title}</p>
-        </div>
-        <Separator />
-      </div>
-      <ShoppingCartTabs />
+    <div dir="rtl" className="px-30 h-screen py-8 bg-nutral-50">
+      {page === "shopping-cart" && <ShoppingCartPage />}
+      {page === "order-delivery-address" && <OrderDeliveryAddressPage />}
     </div>
   );
 }
