@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { useState } from "react";
 
-import { ProductsListProps } from "../../types";
+import { ProductsListProps } from "../../../types";
 
 import { Button } from "@/components/ui/button";
 
@@ -41,7 +41,7 @@ export function ProductsCard({ name, warranty, color, picture }: ProductsListPro
             </div>
 
             <div className="flex items-center gap-x-2 bg-gray-100 rounded-full py-1 px-1 w-24">
-              <span className="inline-block w-6 h-6 bg-white rounded-full"></span>
+              <span className="inline-block w-6 h-6 bg-white rounded-full" />
               <p className="text-xs text-gray-700">{color}</p>
             </div>
             <div>

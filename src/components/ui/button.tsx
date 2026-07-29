@@ -10,14 +10,14 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/80 cursor-pointer",
         outline:
-          "bg-white text-primary border-2 border-primary hover:border-pink-700 active:border-pink-800 hover:text-pink-700 active:text-pink-800 cursor-pointer",
+          "bg-white text-primary font-normal border-2 border-primary hover:border-pink-700 active:border-pink-800 hover:text-pink-700 active:text-pink-800 cursor-pointer",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] aria-expanded:bg-secondary aria-expanded:text-secondary-foreground cursor-pointer",
         ghost:
           "text-gray-800 hover:bg-muted hover:text-pink-500 aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50 cursor-pointer",
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40 cursor-pointer",
-        link: "text-primary underline-offset-4 hover:underline cursor-pointer",
+        link: "text-gray-500 font-normal underline-offset-4 hover:underline cursor-pointer",
         filter: "bg-primary hover:bg-pink-700 active:bg-pink-800  text-white cursor-pointer",
         shoppingCard:
           "bg-primary hover:bg-pink-700 active:bg-pink-800 text-white w-full cursor-pointer",
