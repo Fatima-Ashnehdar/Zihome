@@ -54,3 +54,27 @@ export const mockDisabledTabs = [
     icon: <Truck className="size-5 text-gray-300" />,
   },
 ];
+
+export const mockYourAddress = [
+  {
+    id: 1,
+    city: "استان تهران ،شهر تهران ",
+    address: "بلوار فردوس غرب ، بهارشمالی،کوی نگین ،پلاک۲ واحد۱",
+    postalCode: 176567890,
+    contactNumber: 9891234567,
+  },
+  {
+    id: 2,
+    city: "استان تهران ،شهر تهران ",
+    address: "خ پیروزی ،خ صد دستگاه ،کوچه قربانی ،پلاک ۳ واحد ۳",
+    postalCode: 176567890,
+    contactNumber: 9891234567,
+  },
+  {
+    id: 3,
+    city: "استان تهران ،شهر تهران ",
+    address: "خ پیروزی ،خ صد دستگاه ،کوچه قربانی ،پلاک ۳ واحد ۳",
+    postalCode: 176567890,
+    contactNumber: 9891234567,
+  },
+];

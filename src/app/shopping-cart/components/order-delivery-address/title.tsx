@@ -2,7 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 
-import { ChevronLeft, Plus } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
+
+import { YourAddressModal } from "./modal/yourAddressModal";
 
 const deliveryDetails = {
   title: "آدرس تحویل سفارش",
@@ -20,12 +22,7 @@ export function Title() {
           </div>
         </Button>
       </div>
-      <Button variant={"outline"} size={"xl"} className="w-full">
-        <div className="flex items-center gap-x-3">
-          <Plus className="size-5" />
-          <p>برای تحویل سفارش، آدرس خود را ثبت کنید</p>
-        </div>
-      </Button>
+      <YourAddressModal />
     </div>
   );
 }
