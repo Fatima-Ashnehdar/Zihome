@@ -6,7 +6,11 @@ import { mockTotalPrice } from "../../../data/mock-shopping-cart";
 
 import { Button } from "@/components/ui/button";
 
+import { useCartStore } from "@/app/shopping-cart/store/useCardStore";
+
 export function TotalPrice() {
+  const setPage = useCartStore((state) => state.setPage);
+
   return (
     <div className="flex flex-col gap-y-3 border border-gray-200 rounded-2xl px-5 py-14 bg-whit">
       {mockTotalPrice.map((item) => (
@@ -19,7 +23,11 @@ export function TotalPrice() {
           </p>
         </div>
       ))}
-      <Button variant={"shoppingCard"} size={"xl"}>
+      <Button
+        variant={"shoppingCard"}
+        size={"xl"}
+        onClick={() => setPage("order-delivery-address")}
+      >
         <p>تایید و ادامه خرید</p>
       </Button>
     </div>

@@ -1,8 +1,9 @@
 /**@format */
 
 import Image from "next/image";
+import Link from "next/link";
 
-import picture from "../../../../../public/pictures/shopping-cart/payment-failed.png";
+import picture from "@public/pictures/shopping-cart/payment-failed.png";
 
 import { OctagonX } from "lucide-react";
 
@@ -27,9 +28,11 @@ export function PaymentResult() {
           <p className="text-base text-gray-900">{paymentResult.payment}</p>
         </div>
         <div className="flex gap-x-5">
-          <Button variant={"outline"} size={"xl"}>
-            <p>بازگشت به صفحه اصلی</p>
-          </Button>
+          <Link href={"/"}>
+            <Button variant={"outline"} size={"xl"}>
+              <p>بازگشت به صفحه اصلی</p>
+            </Button>
+          </Link>
           <Button variant={"shoppingCard"} size={"xl"} className="w-[35%]">
             <p>پرداخت مجدد</p>
           </Button>

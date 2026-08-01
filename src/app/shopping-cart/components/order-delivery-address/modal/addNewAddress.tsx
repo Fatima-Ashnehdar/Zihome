@@ -17,11 +17,15 @@ import { Plus } from "lucide-react";
 import { SelectBox } from "./selectBox";
 import { AddressMapModal } from "./addressMap";
 
+import { useModalStore } from "@/app/shopping-cart/store/useModalStore";
+
 const addNewAddressModal = {
   title: "افزودن آدرس شما",
 };
 
 export function AddNewAddressModal() {
+  const setPage = useModalStore((state) => state.setPage);
+
   return (
     <Dialog>
       <form>
@@ -69,7 +73,7 @@ export function AddNewAddressModal() {
           </div>
           <DialogFooter>
             <div className="flex justify-start w-full my-3">
-              <Button variant={"shoppingCard"} size={"xl"}>
+              <Button variant={"shoppingCard"} size={"xl"} onClick={() => setPage("show")}>
                 <p>تایید و ادامه</p>
               </Button>
             </div>

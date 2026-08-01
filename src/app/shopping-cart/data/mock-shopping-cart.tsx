@@ -1,4 +1,4 @@
-import mainPicture from "../../../../public/pictures/shopping-cart/main-pic.png";
+import mainPicture from "@public/pictures/shopping-cart/main-pic.png";
 
 import { CircleAlert, MapPin, Truck, CalendarDays, CreditCard } from "lucide-react";
 

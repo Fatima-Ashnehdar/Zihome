@@ -9,32 +9,67 @@ import { toRialMoney } from "@/app/products/utils";
 
 import { Truck } from "lucide-react";
 
+import { useModalStore } from "../../store/useModalStore";
+import { useCartStore } from "../../store/useCardStore";
+
 const accountStatement = {
   title: "صورت حساب",
 };
 
 export function AccountStatement() {
+  const setPage = useCartStore((state) => state.setPage);
+
+  const pageModal = useModalStore((state) => state.page);
+  const setPageModal = useModalStore((state) => state.setPage);
+
+  const pageSelected = pageModal === "show" || pageModal === "payment";
+  const textColor = pageSelected ? "text-gray-900" : "text-gray-400";
+  const bgColor = pageSelected ? "bg-white" : "bg-gray-50";
+
+  const handleClick = () => {
+    if (pageModal === "show") {
+      setPageModal("payment");
+    } else if (pageModal === "payment") {
+      setPage("payment-result");
+    }
+  };
+
   return (
     <div className="sticky top-0 left-0 flex flex-col gap-y-4 w-70 pt-2">
-      <p className="text-base text-gray-700 font-medium">{accountStatement.title}</p>
-      <div className="flex flex-col gap-y-4 border border-gray-300 bg-gray-50 rounded-xl px-6 py-8">
-        <p className="text-center text-gray-400 text-base">اطلاعات پرداخت</p>
+      <p className={`text-base ${textColor} font-normal`}>{accountStatement.title}</p>
+      <div
+        className={`flex flex-col gap-y-4 border border-gray-300 ${bgColor} rounded-xl px-6 py-8`}
+      >
+        <p className={`text-center ${textColor} text-base`}>اطلاعات پرداخت</p>
         <div className="flex flex-col gap-y-4">
           {mockTotalPrice.map((item) => (
             <div key={item.id} className="flex justify-between items-center">
-              <p className="text-gray-400 text-sm">{item.name}</p>
-              <p className="text-gray-400 text-sm">{toRialMoney(item.price)} تومان</p>
+              <p className={`${textColor} text-sm`}>{item.name}</p>
+              <p className={`${textColor} text-sm`}>{toRialMoney(item.price)} تومان</p>
             </div>
           ))}
         </div>
         <Separator />
-        <div className="flex flex-col  gap-y-3 border-b border-gray-300 border-dashed pb-5">
-          <p className="text-gray-400 text-sm">هزینه ارسال</p>
+        <div className="flex flex-col gap-y-3 border-b border-gray-300 border-dashed pb-5">
+          <div className="flex justify-between">
+            <p className={`${textColor} text-sm`}>هزینه ارسال</p>
+            <p className={`${textColor} text-sm`}>{toRialMoney(75000)}</p>
+          </div>
           <Truck className="text-gray-400" />
         </div>
+        <div>
+          <div className="flex justify-between">
+            <p className={`${textColor} text-sm`}>جمع کل</p>
+            <p className={`${textColor} text-sm`}>{toRialMoney(93575500)} تومان</p>
+          </div>
+        </div>
       </div>
-      <Button variant={"fillDisable"} size={"xl"}>
-        <p className="font-normal">تایید و ادامه خرید</p>
+      <Button
+        variant={pageSelected ? "shoppingCard" : "fillDisable"}
+        size={"xl"}
+        onClick={handleClick}
+      >
+        <p className="font-normal">{pageModal === "payment" ? "پرداخت" : "تایید و ادامه خرید"}</p>
       </Button>
     </div>
   );

@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 
 import { Plus, Trash2 } from "lucide-react";
 
-import picture from "../../../../../public/pictures/shopping-cart/main-pic.png";
+import picture from "@public/pictures/shopping-cart/main-pic.png";
 
 import { toRialMoney } from "@/app/products/utils";
 
