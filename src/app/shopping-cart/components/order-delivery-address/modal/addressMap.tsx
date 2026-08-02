@@ -16,7 +16,7 @@ import { Search } from "lucide-react";
 
 import { ConfirmAddressInformationModal } from "./confirmAddressInformation";
 
-import picture from "../../../../../../public/pictures/shopping-cart/pic- loction.png";
+import picture from "@public/pictures/shopping-cart/pic- loction.png";
 
 import Image from "next/image";
 

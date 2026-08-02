@@ -13,12 +13,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 
-import { MapPin, Pencil, Search } from "lucide-react";
+import { MapPin, Search } from "lucide-react";
 
-import picture from "../../../../../../public/pictures/shopping-cart/pic- loction.png";
+import picture from "@public/pictures/shopping-cart/pic- loction.png";
 
 import Image from "next/image";
+
 import { EditAddressModal } from "./editAddress";
+
+import { useModalStore } from "@/app/shopping-cart/store/useModalStore";
 
 const confirmAddressInformation = {
   title: "تایید اطلاعات آدرس",
@@ -26,6 +29,8 @@ const confirmAddressInformation = {
 };
 
 export function ConfirmAddressInformationModal() {
+  const setPage = useModalStore((state) => state.setPage);
+
   return (
     <Dialog>
       <form>
@@ -87,7 +92,12 @@ export function ConfirmAddressInformationModal() {
             <Button variant={"outline"} size={"xl"} className="w-[50%]">
               <p>انصراف</p>
             </Button>
-            <Button variant={"shoppingCard"} size={"xl"} className="w-[50%]">
+            <Button
+              variant={"shoppingCard"}
+              size={"xl"}
+              className="w-[50%]"
+              onClick={() => setPage("show")}
+            >
               <p>ذخیره آدرس</p>
             </Button>
           </DialogFooter>

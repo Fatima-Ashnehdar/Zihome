@@ -20,13 +20,16 @@ import { EditAddressModal } from "./editAddress";
 
 import Image from "next/image";
 
-import logo from "../../../../../../public/pictures/shopping-cart/map.png";
+import logo from "@public/pictures/shopping-cart/map.png";
+
+import { useModalStore } from "@/app/shopping-cart/store/useModalStore";
 
 const yourAddressModal = {
   title: "آدرس های شما",
 };
 
 export function YourAddressModal() {
+  const setPage = useModalStore((state) => state.setPage);
   return (
     <Dialog>
       <form>
@@ -49,7 +52,7 @@ export function YourAddressModal() {
             <Separator className="my-2" />
           </DialogHeader>
 
-          <div className="flex flex-col gap-y-5 overflow-y-scroll">
+          <div className="flex flex-col gap-y-5 overflow-y-scroll" onClick={() => setPage("show")}>
             {mockYourAddress.map((item) => (
               <div
                 key={item.id}

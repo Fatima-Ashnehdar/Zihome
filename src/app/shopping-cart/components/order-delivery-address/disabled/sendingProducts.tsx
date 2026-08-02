@@ -8,7 +8,7 @@ import { mockShippingDetails } from "@/app/shopping-cart/data/mock-shopping-cart
 
 import { Plus, Trash2, Truck } from "lucide-react";
 
-import picture from "../../../../../../public/pictures/shopping-cart/main-pic.png";
+import picture from "@public/pictures/shopping-cart/main-pic.png";
 
 export function DisabledSendingProducts() {
   return (
