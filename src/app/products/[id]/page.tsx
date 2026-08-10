@@ -8,7 +8,7 @@ import { ProductsSimilar } from "./components/products-similar/productsSimilar";
 
 export default function ProductDetails() {
   return (
-    <div dir="rtl" className="flex flex-col gap-y-12 px-30 py-8 bg-nutral-50">
+    <div dir="rtl" className="flex flex-col gap-y-12 px-30 py-8 mt-[13%] bg-nutral-50">
       <div className="flex gap-x-2">
         <p className="text-gray-500 text-base font-normal">
           زی هوم / خانه و آشپزخانه / ظروف پخت و پز /

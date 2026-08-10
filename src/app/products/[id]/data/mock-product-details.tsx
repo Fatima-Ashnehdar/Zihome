@@ -1,7 +1,6 @@
 /** @format */
 
-import { ChevronDown, ChevronLeft } from "lucide-react";
-import { Angry, Frown, Laugh, Smile, SmilePlus } from "lucide-react";
+import { Angry, Frown, Laugh, Smile, SmilePlus, ChevronDown, ChevronLeft } from "lucide-react";
 
 import photo1 from "@public/pictures/details/pic-62.png";
 import photo2 from "@public/pictures/details/pic-63.png";

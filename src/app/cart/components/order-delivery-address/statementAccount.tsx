@@ -35,7 +35,7 @@ export function AccountStatement() {
   };
 
   return (
-    <div className="sticky top-0 left-0 flex flex-col gap-y-4 w-70 pt-2">
+    <div className="sticky top-[29%] left-0 flex flex-col gap-y-4 w-70 pt-2">
       <p className={`text-base ${textColor} font-normal`}>{accountStatement.title}</p>
       <div
         className={`flex flex-col gap-y-4 border border-gray-300 ${bgColor} rounded-xl px-6 py-8`}

@@ -1,6 +1,7 @@
 /**@format */
 
-import { QuestionsCardProps } from "@/app/product-details/types";
+import { QuestionsCardProps } from "../../../types";
+
 import { QuestionsCard } from "./card";
 
 export interface QuestionCard {

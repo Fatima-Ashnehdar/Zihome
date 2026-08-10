@@ -21,7 +21,7 @@ const stars = [
 
 export function PostViewPoint() {
   return (
-    <div className="sticky top-0 right-0 w-full">
+    <div className="sticky top-[32%] right-0 w-full">
       <div className="flex flex-col gap-y-6 border rounded-2xl px-5 py-6">
         <p className="text-base text-gray-950">{postViewPoint.title}</p>
         <div>

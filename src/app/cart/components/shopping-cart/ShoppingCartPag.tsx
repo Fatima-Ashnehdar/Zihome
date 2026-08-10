@@ -12,7 +12,7 @@ const shoppingCard = {
 
 export function ShoppingCartPag() {
   return (
-    <div className="flex flex-col gap-y-12 py-8">
+    <div className="flex flex-col gap-y-12 py-8 mt-[13%]">
       <div className="flex flex-col gap-y-7">
         <div className="flex gap-x-3">
           <ShoppingCart className="text-gray-600" />

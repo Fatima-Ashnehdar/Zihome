@@ -36,7 +36,7 @@ export function ProductSidebar() {
   }
 
   return (
-    <div className="sticky right-0 top-10 rounded-2xl border py-5 px-6 flex flex-col gap-y-3 w-74.5 bg-white">
+    <div className="sticky right-0 top-[33%] rounded-2xl border py-5 px-6 flex flex-col gap-y-3 w-74.5 bg-white">
       <div className="pb-2 flex justify-between items-center">
         <p className="text-base text-gray-900">فیلتر ها</p>
         <Button variant={"link"} size={"icon-lg"} onClick={() => setIsOpen(false)}>

@@ -9,7 +9,7 @@ const postQuestions = {
 
 export function PostQuestions() {
   return (
-    <div className="sticky top-0 right-0 w-full">
+    <div className="sticky top-[32%] right-0 w-full">
       <div className="flex flex-col  gap-y-10 border rounded-2xl px-5 py-6">
         <div className="flex flex-col items-center gap-y-4">
           <p className="text-base text-gray-950">{postQuestions.title}</p>

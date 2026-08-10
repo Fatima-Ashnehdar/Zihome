@@ -22,6 +22,8 @@ const buttonVariants = cva(
         shoppingCard:
           "bg-primary hover:bg-pink-700 active:bg-pink-800 text-white w-full cursor-pointer",
         fillDisable: "bg-gray-100 w-full text-sm text-gray-400 cursor-pointer",
+        login:
+          "text-sm text-gray-600 border border-gray-600 rounded-md cursor-pointer hover:text-gray-400 hover:border-gray-400 active:text-gray-950 active:border-gray-950",
       },
       size: {
         default:

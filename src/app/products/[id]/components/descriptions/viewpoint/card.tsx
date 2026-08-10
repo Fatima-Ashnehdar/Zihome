@@ -1,6 +1,6 @@
 /** @format */
 
-import { ViewPointCardProps } from "@/app/product-details/types";
+import { ViewPointCardProps } from "../../../types";
 
 import { toRialMoney } from "@/app/products/(shop)/utils/index";
 

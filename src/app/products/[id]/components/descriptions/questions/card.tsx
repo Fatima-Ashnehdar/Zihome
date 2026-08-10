@@ -1,8 +1,9 @@
 /**@format */
 
-import { QuestionsCardProps } from "@/app/product-details/types";
+import { QuestionsCardProps } from "../../../types";
 
 import { MessageCircleMore } from "lucide-react";
+
 import { AnswerModal } from "../../modal/answerModal";
 
 export function QuestionsCard({ question, answer, icon }: QuestionsCardProps) {

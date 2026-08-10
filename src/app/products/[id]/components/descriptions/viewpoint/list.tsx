@@ -1,6 +1,7 @@
 /** @format */
 
-import { ViewPointCardProps } from "@/app/product-details/types/index";
+import { ViewPointCardProps } from "../../../types";
+
 import { ViewpointCard } from "./card";
 
 export interface ViewPointCard {

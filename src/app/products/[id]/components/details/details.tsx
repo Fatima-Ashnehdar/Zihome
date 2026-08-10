@@ -1,3 +1,5 @@
+/**@format */
+
 import { FeaturesDetails } from "./featureDetails";
 import { PicturesDetails } from "./picturesDetails";
 
