@@ -1,0 +1,35 @@
+/**@format */
+
+import { toRialMoney } from "@/app/products/(shop)/utils/index";
+
+import { mockTotalPrice } from "../../../data/mock-cart";
+
+import { Button } from "@/components/ui/button";
+
+import { useCartStore } from "@/app/cart/store/useCardStore";
+
+export function TotalPrice() {
+  const setPage = useCartStore((state) => state.setPage);
+
+  return (
+    <div className="flex flex-col gap-y-3 border border-gray-200 rounded-2xl px-5 py-14 bg-whit">
+      {mockTotalPrice.map((item) => (
+        <div key={item.id} className="flex items-center justify-between">
+          <p className={`text-sm ${item.color ? "text-gray-900" : "text-green-700"}`}>
+            {item.name}
+          </p>
+          <p className={`text-sm ${item.color ? "text-gray-900" : "text-green-700"}`}>
+            {toRialMoney(item.price)}
+          </p>
+        </div>
+      ))}
+      <Button
+        variant={"shoppingCard"}
+        size={"xl"}
+        onClick={() => setPage("order-delivery-address")}
+      >
+        <p>تایید و ادامه خرید</p>
+      </Button>
+    </div>
+  );
+}
