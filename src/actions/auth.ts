@@ -1,8 +1,8 @@
 "use server";
 
 import {
-  PhoneSchema,
-  PasswordSchema,
+  phoneSchema,
+  passwordSchema,
   FormState,
   CodeSchema,
   ChangePasswordSchema,
@@ -17,7 +17,7 @@ export async function logout() {
 }
 
 export async function registerPhone(state: FormState, formData: FormData): Promise<FormState> {
-  const validatedFields = PhoneSchema.safeParse({
+  const validatedFields = phoneSchema.safeParse({
     phone: formData.get("phone"),
   });
 
@@ -31,7 +31,7 @@ export async function registerPhone(state: FormState, formData: FormData): Promi
 }
 
 export async function loginWithPassword(state: FormState, formData: FormData): Promise<FormState> {
-  const validatedFields = PasswordSchema.safeParse({
+  const validatedFields = passwordSchema.safeParse({
     password: formData.get("password"),
   });
 
@@ -56,7 +56,7 @@ export async function verifyCode(state: FormState, formData: FormData): Promise<
       success: false,
     };
   }
-  return { success: true };
+  redirect("/dashboard");
 }
 
 export async function changePassword(state: FormState, formData: FormData): Promise<FormState> {

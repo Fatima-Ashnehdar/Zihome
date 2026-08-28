@@ -11,7 +11,7 @@ import { useCartStore } from "@/store/useCartStore";
 
 const warrantyDetails = {
   id: 1,
-  title: "گارانتی اصالت و سلامت فیزیکی کالا",
+  name: "گارانتی اصالت و سلامت فیزیکی کالا",
   color: "سفید",
   currentPrice: 86000000,
   PreviousPrice: 100000000,
@@ -29,13 +29,14 @@ export function Warranty() {
       name: warrantyDetails.name,
       color: warrantyDetails.color,
       picture: warrantyDetails.picture,
+      counter: warrantyDetails.id,
     });
   };
   return (
     <div className="flex flex-col gap-y-6 border border-gray-200 rounded-2xl px-5 py-6 h-fit bg-white">
       <div className="flex items-center gap-x-2">
         <CircleStar className="size-5 text-gray-700" />
-        <p className="text-sm text-gray-700">{warrantyDetails.title}</p>
+        <p className="text-sm text-gray-700">{warrantyDetails.name}</p>
       </div>
       <Separator />
       <div className="flex items-center gap-x-2">

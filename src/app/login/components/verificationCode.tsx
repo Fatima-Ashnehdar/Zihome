@@ -29,12 +29,6 @@ export function VerificationCode() {
         <div className="flex flex-col gap-y-2">
           <p className="text-sm text-gray-900">{mockVerificationCode.label}</p>
           <div className="flex gap-x-5">
-            {/* <Input className="h-12 rounded-md" id="code-1" name="code-1" type="number" />
-            <Input className="h-12 rounded-md" id="code-2" name="code-2" type="number" />
-            <Input className="h-12 rounded-md" id="code-3" name="code-3" type="number" />
-            <Input className="h-12 rounded-md" id="code-4" name="code-4" type="number" />
-            <Input className="h-12 rounded-md" id="code-5" name="code-5" type="number" />
-            <Input className="h-12 rounded-md" id="code-6" name="code-6" type="number" /> */}
             {[1, 2, 3, 4, 5, 6].map((input) => (
               <Input
                 key={input}
@@ -64,7 +58,7 @@ export function VerificationCode() {
           <p className="text-sm text-gray-900">{mockVerificationCode.text}</p>
         </div>
         <div className="flex flex-col gap-y-2">
-          <Button variant={"shoppingCard"} size={"xl"} onClick={() => setPage("change-password")}>
+          <Button type="submit" variant={"shoppingCard"} size={"xl"}>
             <p>تایید</p>
           </Button>
           <p className="text-xs text-gray-800 text-center">
