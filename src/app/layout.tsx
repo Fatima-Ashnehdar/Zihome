@@ -52,11 +52,12 @@ export default function RootLayout({
       lang="en"
       className={`${shabnam.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      {/* <body className="min-h-full flex flex-col">
         <Header />
         <main>{children}</main>
         <Footer />
-      </body>
+      </body> */}
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

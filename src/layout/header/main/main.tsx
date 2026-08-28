@@ -1,6 +1,7 @@
 /**@format */
 
 import Image from "next/image";
+import Link from "next/link";
 
 import logo from "@public/pictures/layout/logo.png";
 
@@ -19,16 +20,20 @@ export function HeaderMain() {
         <HeaderSearch />
       </div>
       <div className="flex items-center gap-x-4">
-        <Button variant={"login"} size={"xl"}>
-          <div className="flex gap-x-2">
-            <UserRound />
-            <p>ثبت نام | ورود</p>
-          </div>
-        </Button>
+        <Link href={"/login"}>
+          <Button variant={"login"} size={"xl"}>
+            <div className="flex gap-x-2">
+              <UserRound />
+              <p>ثبت نام | ورود</p>
+            </div>
+          </Button>
+        </Link>
         <Separator orientation="vertical" />
-        <Button variant={"ghost"} size={"icon-xs"} className="hover:bg-white">
-          <ShoppingCart className="size-5.5" />
-        </Button>
+        <Link href={"/cart"}>
+          <Button variant={"ghost"} size={"icon-xs"} className="hover:bg-white">
+            <ShoppingCart className="size-5.5" />
+          </Button>
+        </Link>
       </div>
     </div>
   );
