@@ -6,7 +6,7 @@ import {
   FormState,
   CodeSchema,
   ChangePasswordSchema,
-} from "@/lib/definitions";
+} from "@/lib/validation";
 
 import { redirect } from "next/navigation";
 import { createSession, deleteSession } from "@/lib/session";
