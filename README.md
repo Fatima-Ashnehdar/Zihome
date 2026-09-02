@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zihome
 
-## Getting Started
+Persian e-commerce storefront built with **Next.js 16** (App Router). The UI currently uses mock data; the backend API lives inside the same Next.js app and is ready for future integration.
 
-First, run the development server:
+## Stack
+
+- **Frontend:** Next.js, React 19, Tailwind CSS v4, shadcn/ui
+- **Backend:** Next.js Route Handlers (`/api/v1/*`), Prisma, PostgreSQL
+- **Auth:** JWT (access + refresh), OTP registration, bcrypt passwords
+- **Docs:** Swagger UI at `/docs`, OpenAPI at `/api/docs/openapi`
+
+## Quick Start
+
+### 1. Install dependencies
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Environment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .env.example .env
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit secrets in `.env` for production.
 
-## Learn More
+### 3. Start database (Docker)
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm docker:up
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- PostgreSQL: `localhost:5432`
+- Adminer: `http://localhost:8080` (user: `zihome`, password: `zihome_secret`, database: `zihome`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Migrate & seed
 
-## Deploy on Vercel
+```bash
+pnpm db:generate
+pnpm db:migrate:dev    # first time / schema changes
+pnpm db:seed
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 5. Run dev server
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm dev
+```
+
+| URL | Description |
+|-----|-------------|
+| http://localhost:3000 | Frontend (mock data) |
+| http://localhost:3000/docs | Swagger API docs |
+| http://localhost:3000/api/health | Health check |
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start Next.js dev server |
+| `pnpm build` | Generate Prisma client + production build |
+| `pnpm docker:up` | Start Postgres + Adminer |
+| `pnpm docker:down` | Stop containers |
+| `pnpm db:migrate` | Apply migrations (production) |
+| `pnpm db:migrate:dev` | Create/apply migrations (development) |
+| `pnpm db:seed` | Seed database with mock catalog data |
+| `pnpm test:api` | Run API unit tests |
+| `pnpm typecheck` | TypeScript check |
+
+## Seed accounts
+
+| Role | Phone | Password |
+|------|-------|----------|
+| Admin | `09123456789` | `Admin1234` |
+| User | `09126996755` | `User12345` |
+
+OTP codes are printed to the server console in development.
+
+## API documentation
+
+See [API.md](./API.md) for the full endpoint reference, auth flow, and response formats.
+
+## Project structure
+
+```
+src/
+├── app/              # Pages + API routes
+├── server/           # Backend services (not imported by frontend pages)
+├── components/       # UI components
+├── actions/          # Server actions (legacy, not wired to new API)
+└── lib/              # Shared utilities
+prisma/               # Schema, migrations, seed
+tests/                # Vitest tests
+```
+
+## Notes
+
+- **Frontend is not connected to the API** — pages still read from mock modules under `src/lib/mock/`.
+- Backend code is isolated under `src/server/` and `src/app/api/`.
+- Do not commit `.env` — use `.env.example` as reference.

@@ -1,0 +1,309 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING_PAYMENT
+  PAID
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+model User {
+  id            String         @id @default(cuid())
+  phone         String         @unique
+  passwordHash  String?
+  role          UserRole       @default(USER)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  otpCodes      OtpCode[]
+  refreshTokens RefreshToken[]
+  cartItems     CartItem[]
+  addresses     Address[]
+  orders        Order[]
+  reviews       Review[]
+}
+
+model OtpCode {
+  id        String   @id @default(cuid())
+  phone     String
+  code      String
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+
+  @@index([phone, code])
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+model Category {
+  id        String     @id @default(cuid())
+  name      String
+  slug      String     @unique
+  imageUrl  String?
+  parentId  String?
+  parent    Category?  @relation("CategoryTree", fields: [parentId], references: [id])
+  children  Category[] @relation("CategoryTree")
+  products  Product[]
+  sortOrder Int        @default(0)
+  createdAt DateTime   @default(now())
+}
+
+model Brand {
+  id       String    @id @default(cuid())
+  name     String    @unique
+  slug     String    @unique
+  products Product[]
+}
+
+model Product {
+  id              String                 @id @default(cuid())
+  name            String
+  model           String
+  score           Float                  @default(4.3)
+  currentPrice    Int
+  previousPrice   Int
+  discountLabel   String                 @default("۳۰٪")
+  photoUrl        String
+  description     String?                @db.Text
+  introduction    String?                @db.Text
+  inStock         Boolean                @default(true)
+  hasColorOptions Boolean                @default(false)
+  hasWarranty     Boolean                @default(true)
+  categoryId      String?
+  category        Category?              @relation(fields: [categoryId], references: [id])
+  brandId         String?
+  brand           Brand?                 @relation(fields: [brandId], references: [id])
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
+  images          ProductImage[]
+  specifications  ProductSpecification[]
+  reviews         Review[]
+  questions       Question[]
+  insurance       InsuranceOption?
+  cartItems       CartItem[]
+  orderItems      OrderItem[]
+  similarFrom     ProductSimilar[]       @relation("SimilarFrom")
+  similarTo       ProductSimilar[]       @relation("SimilarTo")
+
+  @@index([categoryId])
+  @@index([brandId])
+  @@index([currentPrice])
+  @@index([name])
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  sortOrder Int     @default(0)
+  isMain    Boolean @default(false)
+
+  @@index([productId])
+}
+
+model ProductSpecification {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  key       String
+  value     String
+
+  @@index([productId])
+}
+
+model ProductSimilar {
+  productId        String
+  similarProductId String
+  product          Product @relation("SimilarFrom", fields: [productId], references: [id], onDelete: Cascade)
+  similarProduct   Product @relation("SimilarTo", fields: [similarProductId], references: [id], onDelete: Cascade)
+
+  @@id([productId, similarProductId])
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  authorName String
+  score      Float
+  opinion    String   @db.Text
+  reviewDate String
+  createdAt  DateTime @default(now())
+
+  @@index([productId])
+}
+
+model Question {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  question  String   @db.Text
+  answer    String?  @db.Text
+  createdAt DateTime @default(now())
+
+  @@index([productId])
+}
+
+model InsuranceOption {
+  id            String  @id @default(cuid())
+  productId     String  @unique
+  product       Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  title         String
+  description   String  @db.Text
+  attention     String?
+  previousPrice Int
+  currentPrice  Int
+  paragraphs    Json
+}
+
+model CartItem {
+  id           String  @id @default(cuid())
+  userId       String
+  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId    String
+  product      Product @relation(fields: [productId], references: [id])
+  color        String  @default("سفید")
+  quantity     Int     @default(1)
+  hasInsurance Boolean @default(false)
+
+  @@unique([userId, productId, color])
+  @@index([userId])
+}
+
+model Address {
+  id            String  @id @default(cuid())
+  userId        String
+  user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  city          String
+  address       String
+  postalCode    String
+  contactNumber String
+  isDefault     Boolean @default(false)
+
+  @@index([userId])
+}
+
+model DiscountCode {
+  id         String    @id @default(cuid())
+  code       String    @unique
+  percentOff Int?
+  amountOff  Int?
+  minAmount  Int?
+  expiresAt  DateTime?
+  active     Boolean   @default(true)
+}
+
+model Order {
+  id             String      @id @default(cuid())
+  userId         String
+  user           User        @relation(fields: [userId], references: [id])
+  status         OrderStatus @default(PENDING_PAYMENT)
+  trackingNumber String?     @unique
+  paymentMethod  String?
+  shippingMethod String?
+  shippingDay    String?
+  shippingTime   String?
+  addressId      String?
+  subtotal       Int
+  insuranceTotal Int         @default(0)
+  shippingCost   Int         @default(0)
+  discountAmount Int         @default(0)
+  total          Int
+  createdAt      DateTime    @default(now())
+  items          OrderItem[]
+
+  @@index([userId])
+  @@index([status])
+}
+
+model OrderItem {
+  id             String  @id @default(cuid())
+  orderId        String
+  order          Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId      String
+  product        Product @relation(fields: [productId], references: [id])
+  productName    String
+  color          String
+  quantity       Int
+  unitPrice      Int
+  hasInsurance   Boolean @default(false)
+  insurancePrice Int     @default(0)
+
+  @@index([orderId])
+}
+
+model ShippingDay {
+  id        String             @id @default(cuid())
+  day       String
+  date      Int
+  month     String
+  sortOrder Int                @default(0)
+  slots     ShippingTimeSlot[]
+}
+
+model ShippingTimeSlot {
+  id            String      @id @default(cuid())
+  shippingDayId String
+  shippingDay   ShippingDay @relation(fields: [shippingDayId], references: [id], onDelete: Cascade)
+  clock         String
+  sortOrder     Int         @default(0)
+
+  @@index([shippingDayId])
+}
+
+model LayoutLinkGroup {
+  id    String       @id @default(cuid())
+  title String
+  type  String
+  links LayoutLink[]
+}
+
+model LayoutLink {
+  id        String          @id @default(cuid())
+  groupId   String
+  group     LayoutLinkGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  text      String
+  url       String?
+  sortOrder Int             @default(0)
+}
+
+model LayoutBanner {
+  id        String @id @default(cuid())
+  text      String
+  sortOrder Int    @default(0)
+}
+
+model LayoutFeature {
+  id        String @id @default(cuid())
+  title     String
+  text      String
+  sortOrder Int    @default(0)
+}
