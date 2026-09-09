@@ -4,10 +4,14 @@ type CardPage = "register" | "verification-code" | "loginWith-password" | "chang
 
 interface CardStore {
   page: CardPage;
+  phone: string;
   setPage: (page: CardPage) => void;
+  setPhone: (phone: string) => void;
 }
 
 export const useLoginStore = create<CardStore>((set) => ({
   page: "register",
+  phone: "",
   setPage: (page) => set({ page }),
+  setPhone: (phone) => set({ phone }),
 }));

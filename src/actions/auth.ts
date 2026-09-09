@@ -1,18 +1,22 @@
 "use server";
 
+import axios from "axios";
+
 import {
   phoneSchema,
   passwordSchema,
   FormState,
   CodeSchema,
   ChangePasswordSchema,
-} from "@/lib/definitions";
+} from "@/lib/validation";
 
 import { redirect } from "next/navigation";
-import { createSession, deleteSession } from "@/lib/session";
+import { deleteSession } from "@/lib/session";
+import { cookies } from "next/headers";
+import { authCookieOptions } from "@/server/http/auth-context";
 
 export async function logout() {
-  await deleteSession;
+  await deleteSession();
   redirect("/login");
 }
 
@@ -27,7 +31,14 @@ export async function registerPhone(state: FormState, formData: FormData): Promi
       success: false,
     };
   }
-  return { success: true };
+  const { data } = await axios.post("http://localhost:3000/api/v1/auth/register", {
+    phone: validatedFields.data.phone,
+  });
+
+  return {
+    message: data.data?.message,
+    success: true,
+  };
 }
 
 export async function loginWithPassword(state: FormState, formData: FormData): Promise<FormState> {
@@ -45,7 +56,10 @@ export async function loginWithPassword(state: FormState, formData: FormData): P
 }
 
 export async function verifyCode(state: FormState, formData: FormData): Promise<FormState> {
+  const phone = formData.get("phone");
+
   const codeDigits = [1, 2, 3, 4, 5, 6].map((i) => formData.get(`code-${i}`));
+
   const code = codeDigits.join("");
 
   const validatedFields = CodeSchema.safeParse({ code });
@@ -56,6 +70,23 @@ export async function verifyCode(state: FormState, formData: FormData): Promise<
       success: false,
     };
   }
+
+  try {
+    const { data } = await axios.post("http://localhost:3000/api/v1/auth/verify-code", {
+      phone,
+      code,
+    });
+
+    const cookieStore = await cookies();
+
+    cookieStore.set("accessToken", data.data.accessToken, authCookieOptions());
+  } catch (error) {
+    return {
+      message: "کد تایید وارد شده اشتباه است.",
+      success: false,
+    };
+  }
+
   redirect("/dashboard");
 }
 

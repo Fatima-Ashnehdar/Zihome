@@ -13,13 +13,25 @@ import { X } from "lucide-react";
 
 import { registerPhone } from "@/actions/auth";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 
 export function Register() {
   const setPage = useLoginStore((state) => state.setPage);
+  const setPhone = useLoginStore((state) => state.setPhone);
   const [state, action, pending] = useActionState(registerPhone, undefined);
+
+  const phoneInput = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (state?.success) {
+      setPage("verification-code");
+    }
+  }, [state?.success, setPage]);
   return (
     <form
+      onSubmit={() => {
+        setPhone(phoneInput.current?.value ?? "");
+      }}
       action={action}
       className="flex flex-col gap-y-12 bg-white w-[31%] rounded-2xl px-10 py-12"
     >
@@ -31,26 +43,31 @@ export function Register() {
         <div className="flex flex-col gap-y-2 relative">
           <p className="text-sm text-gray-900">{mockRegister.label}</p>
           <Input
+            ref={phoneInput}
             id="phone"
             name="phone"
-            type="text"
+            type="number"
             inputMode="numeric"
             placeholder="۰۹۱۲۶۹۹۶۷۵۵"
-            className="h-11 pr-4"
+            className="h-11 pr-4 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           />
-          <Button variant={"ghost"} className="absolute top-8.5 left-1">
+          <Button
+            onClick={() => {
+              if (phoneInput.current) {
+                phoneInput.current.value = "";
+                phoneInput.current.focus();
+              }
+            }}
+            type="button"
+            variant={"ghost"}
+            className="absolute top-8.5 left-1"
+          >
             <X className="size-4" />
           </Button>
         </div>
-        {state?.errors?.phone && <p>{state.errors.phone}</p>}
+        {state?.errors?.phone && <p className="text-xs text-red-500">{state.errors.phone}</p>}
         <div className="flex flex-col gap-y-3">
-          <Button
-            disabled={pending}
-            type="submit"
-            variant={"shoppingCard"}
-            size={"xl"}
-            onClick={() => setPage("verification-code")}
-          >
+          <Button disabled={pending} type="submit" variant={"shoppingCard"} size={"xl"}>
             <p>تایید</p>
           </Button>
           <p className="text-xs text-gray-800 text-center">

@@ -13,37 +13,55 @@ import { ChevronLeft } from "lucide-react";
 
 import { verifyCode } from "@/actions/auth";
 
-import { useActionState } from "react";
+import { useActionState, useRef } from "react";
 
 export function VerificationCode() {
   const setPage = useLoginStore((state) => state.setPage);
-  const [state, action, pending] = useActionState(verifyCode, undefined);
+  const phone = useLoginStore((state) => state.phone);
+  const [state, action] = useActionState(verifyCode, undefined);
+
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   return (
     <form
       action={action}
       className="flex flex-col gap-y-12 bg-white w-[31%] rounded-2xl px-10 py-12"
     >
+      <input type="hidden" name="phone" value={phone} />
       <p className="text-base text-gray-800">{mockVerificationCode.title}</p>
       <div className="flex flex-col items-start gap-y-6">
-        <div className="flex flex-col gap-y-2">
-          <p className="text-sm text-gray-900">{mockVerificationCode.label}</p>
-          <div className="flex gap-x-5">
-            {[1, 2, 3, 4, 5, 6].map((input) => (
+        <div className="flex flex-col gap-y-3">
+          <p className="text-sm text-gray-900">کد تایید برای شماره {phone} پیامک شد</p>
+          <div dir="ltr" className="flex gap-x-5">
+            {[1, 2, 3, 4, 5, 6].map((input, index) => (
               <Input
                 key={input}
+                ref={(el) => {
+                  inputRefs.current[index] = el;
+                }}
                 className="h-12 rounded-md text-center"
                 id={`code-${input}`}
                 name={`code-${input}`}
                 type="text"
                 inputMode="numeric"
                 maxLength={1}
+                onChange={(e) => {
+                  if (e.target.value && index < 5) {
+                    inputRefs.current[index + 1]?.focus();
+                  }
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Backspace" && !e.currentTarget.value && index > 0) {
+                    inputRefs.current[index - 1]?.focus();
+                  }
+                }}
               />
             ))}
           </div>
           {state?.errors?.code && (
             <p className="text-xs text-red-500 mt-1">{state.errors.code[0]}</p>
           )}
+          {state?.message && <p className="text-xs text-red-500 mt-1">{state.message}</p>}
         </div>
         <Button variant={"ghost"} onClick={() => setPage("loginWith-password")}>
           <div className="flex items-center gap-x-3">

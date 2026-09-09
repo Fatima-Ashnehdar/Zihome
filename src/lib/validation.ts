@@ -1,14 +1,14 @@
 import * as z from "zod";
 
-import { createSession, deleteSession } from "./session";
+import { deleteSession } from "./session";
 import { redirect } from "next/navigation";
 
 export const phoneSchema = z.object({
   phone: z
     .string()
     .trim()
-    .min(11, { message: "شماره موبایل باید ۱۱ رقم باشد." })
-    .regex(/^09\d{9}$/, { message: "شماره موبایل وارد شده معتبر نیست." }),
+    .min(1, { message: "لطفا این قسمت را خالی نگذارید." })
+    .length(11, { message: "شماره موبایل باید ۱۱ رقم باشد." }),
 });
 
 export const passwordSchema = z.object({
