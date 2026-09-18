@@ -5,12 +5,14 @@ import { QuestionList } from "./list";
 import { QuestionsTabs } from "./tabs";
 
 import { mockQuestions } from "@/app/products/[id]/data/mock-product-details";
+import { useProductIdStore } from "@/store/useProductStore";
 
 const question = {
   title: "پرسش ها",
 };
 
 export function Questions() {
+  const product = useProductIdStore((State) => State.product);
   return (
     <div className="flex flex-col gap-y-6">
       <div className="bg-gray-50 rounded-2xl px-8 py-4">
@@ -20,7 +22,7 @@ export function Questions() {
         <QuestionsTabs />
       </div>
       <div className="flex gap-x-6 justify-between">
-        <QuestionList questions={mockQuestions} />
+        <QuestionList />
         <div className="sticky top-0 left-0 w-[29%]">
           <PostQuestions />
         </div>

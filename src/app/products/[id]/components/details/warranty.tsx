@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 
 import { CircleStar, Minus, Palette, Plus } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
+import { useProductIdStore } from "@/store/useProductStore";
 
 const warrantyDetails = {
   id: 1,
@@ -23,6 +24,7 @@ export function Warranty() {
   const minusCounter = useCartStore((state) => state.minusCount);
   const addItem = useCartStore((state) => state.addItem);
   const itemCounter = useCartStore((state) => state.counter(warrantyDetails.id));
+  const product = useProductIdStore((state) => state.product);
   const addToCart = () => {
     addItem({
       id: warrantyDetails.id,
@@ -47,15 +49,15 @@ export function Warranty() {
       <div dir="ltr" className="flex flex-col gap-y-2">
         <div className="flex items-center gap-x-2">
           <div className="bg-red-500 px-3 py-1 rounded-full shadow-discard">
-            <p className="text-sm text-white">{toRialMoney(30)}%</p>
+            <p className="text-sm text-white">{product?.discount}</p>
           </div>
           <p className="line-through text-sm text-gray-600">
-            {toRialMoney(warrantyDetails.PreviousPrice)}
+            {toRialMoney(Number(product?.previousPrice))}
           </p>
         </div>
         <div className="flex gap-x-1">
           <p className="text-base text-gray-900">تومان</p>
-          <p className="text-base text-gray-900">{toRialMoney(warrantyDetails.currentPrice)}</p>
+          <p className="text-base text-gray-900"> {toRialMoney(Number(product?.currentPrice))}</p>
         </div>
         {itemCounter > 0 && (
           <div className="flex items-center gap-x-2 border border-gray-200 rounded-lg p-0.5 w-fit bg-gray-50">

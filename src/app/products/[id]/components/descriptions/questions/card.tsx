@@ -6,7 +6,7 @@ import { MessageCircleMore } from "lucide-react";
 
 import { AnswerModal } from "../../modal/answerModal";
 
-export function QuestionsCard({ question, answer, icon }: QuestionsCardProps) {
+export function QuestionsCard({ question, answer }: QuestionsCardProps) {
   return (
     <div className="flex flex-col gap-y-8 border rounded-2xl px-6 py-6">
       <div className="flex gap-x-2">
@@ -14,7 +14,7 @@ export function QuestionsCard({ question, answer, icon }: QuestionsCardProps) {
         <p className="text-gray-900">{question}</p>
       </div>
       <div className="flex justify-start">
-        <AnswerModal answer={answer} icon={icon} />
+        <AnswerModal answer={answer} question={question} />
       </div>
     </div>
   );

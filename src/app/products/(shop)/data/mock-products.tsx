@@ -1,8 +1,5 @@
 /**@format */
 
-import image1 from "@/../public/pictures/products/pic-26.png";
-import image2 from "@/../public/pictures/products/pic-24.png";
-import image3 from "@/../public/pictures/products/pic-25.png";
 import photo1 from "@/../public/pictures/products/pic-37.png";
 import photo2 from "@/../public/pictures/products/pic-38.png";
 import photo3 from "@/../public/pictures/products/pic-39.png";
@@ -12,6 +9,8 @@ import photo6 from "@/../public/pictures/products/pic-42.png";
 import photo7 from "@/../public/pictures/products/pic-43.png";
 import photo8 from "@/../public/pictures/products/pic-44.png";
 import photo9 from "@/../public/pictures/products/pic-45.png";
+import { ProductsAPI } from "../api/data-products";
+import { LayoutTab } from "../layout/tab";
 
 export const mockProducts = [
   {
@@ -104,10 +103,4 @@ export const mockProducts = [
     model: "N-llTE ۲۰۳ alRllNKS",
     discount: "۳۰٪",
   },
-];
-export const mockCategory = [
-  { id: "1", name: "یخچال فریزر", image: image1 },
-  { id: "2", name: "سرویس قابلمه", image: image2 },
-  { id: "3", name: "قاشق چنگال و کارد", image: image3 },
-  { id: "4", name: "محصولات دیگر" },
 ];

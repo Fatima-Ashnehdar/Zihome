@@ -25,7 +25,7 @@ export function ViewpointCard({
         </div>
 
         <div className="flex">
-          <p className="text-xs text-gray-600 pt-1">{toRialMoney(score)} امتیاز</p>
+          <p className="text-xs text-gray-600 pt-1">{toRialMoney(Number(score))} امتیاز</p>
           <div>
             <Toggle aria-label="Toggle bookmark" size="sm" variant="default">
               <StarCheckIcon

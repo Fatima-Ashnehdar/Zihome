@@ -19,12 +19,20 @@ const imageGalleryModal = {
   title: "گالری تصاویر",
 };
 
-export function ImageGallery({ picture }: ImageGalleryProps) {
+export function ImageGallery({ picture, images }: ImageGalleryProps) {
   return (
     <Dialog>
       <DialogTrigger
         nativeButton={false}
-        render={<Image alt="main-pic" src={picture} className="cursor-pointer w-[40%]" />}
+        render={
+          <Image
+            alt="main-pic"
+            width={60}
+            height={90}
+            src={picture}
+            className="cursor-pointer w-[40%]"
+          />
+        }
       />
       <DialogContent className="sm:max-w-4xl">
         <DialogHeader>
@@ -34,7 +42,7 @@ export function ImageGallery({ picture }: ImageGalleryProps) {
           <Separator className="my-2" />
         </DialogHeader>
         <div className="flex justify-center">
-          <ImageGallerySwiper />
+          <ImageGallerySwiper images={images} />
         </div>
       </DialogContent>
     </Dialog>
