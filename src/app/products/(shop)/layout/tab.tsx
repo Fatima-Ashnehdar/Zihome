@@ -2,23 +2,47 @@
 
 /**@format */
 
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 import { ProductTab } from "../components/tabs";
 import { CategoryTab } from "../category/components/tabs";
 
-import { mockProducts } from "../data/mock-products";
-import { mockCategories } from "../category/data/mock-categories";
+import { ProductsAPI } from "../api/data-products";
+import { useEffect, useState } from "react";
 
 export function LayoutTab() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const categoryPage = pathname.includes("/category");
+  const categoryId = searchParams.get("categoryId");
+  const brandId = searchParams.get("brandId");
+  const minPrice = searchParams.get("minPrice");
+  const maxPrice = searchParams.get("maxPrice");
+  const sort = searchParams.get("sort");
+  const inStock = searchParams.get("inStock");
+  const hasDiscount = searchParams.get("hasDiscount");
+
+  const [productsData, setProductsData] = useState([]);
+
+  useEffect(() => {
+    ProductsAPI({
+      categoryId: categoryId || undefined,
+      brandId: brandId || undefined,
+      sort: sort || undefined,
+      inStock: inStock === "true" ? true : undefined,
+      hasDiscount: hasDiscount === "true" ? true : undefined,
+      minPrice: minPrice ? Number(minPrice) : undefined,
+      maxPrice: maxPrice ? Number(maxPrice) : undefined,
+    }).then(setProductsData);
+  }, [categoryId, brandId, minPrice, maxPrice, sort, inStock, hasDiscount]);
+
   return (
     <div>
       {categoryPage ? (
-        <CategoryTab category={mockCategories} />
+        <CategoryTab category={productsData} />
       ) : (
-        <ProductTab products={mockProducts} />
+        <ProductTab products={productsData} />
       )}
     </div>
   );

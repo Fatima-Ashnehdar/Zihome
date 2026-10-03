@@ -19,7 +19,8 @@ export function Viewpoint() {
         <ViewpointsTabs />
       </div>
       <div className="flex gap-x-6">
-        <ViewpointList viewPoints={mockViewPoints} />
+        <ViewpointList />
+
         <div className="sticky top-0 left-0">
           <PostViewPoint />
         </div>

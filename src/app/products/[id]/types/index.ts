@@ -12,27 +12,65 @@ export interface ProductsSimilarCardProps {
 }
 
 export interface ViewPointCardProps {
-  id: number;
+  id: string;
   name: string;
   date: string;
-  score: number;
+  score: string;
   opinion: string;
   answer: string;
   question: string;
 }
 
 export interface QuestionsCardProps {
-  id: number;
+  id: string;
   question: string;
   answer: string;
-  icon: ReactNode;
+  // icon: ReactNode;
 }
 
 export interface AnswerModalProps {
   answer: string;
-  icon: ReactNode;
+  question: string;
+
+  // icon: ReactNode;
 }
 
 export interface ImageGalleryProps {
   picture: StaticImageData;
+}
+
+export interface SpecificationProps {
+  key: string;
+  value: string;
+}
+
+export interface FeaturesDetailsProps {
+  name: string;
+  score: number;
+  specifications: SpecificationProps[];
+}
+
+export interface LittlePictureProps {
+  id: number;
+  picture: string;
+}
+
+export interface ProductImageProps {
+  id: string;
+  url: string;
+  isMain: boolean;
+  sortOrder: number;
+}
+
+// export interface picturesDetailsProps {
+//   product: {
+//     mainPicture: string;
+//     littlePictures: LittlePictureProps[];
+//     images: ProductImageProps[];
+//   };
+// }
+
+export interface ImageGalleryProps {
+  picture: StaticImageData;
+  images: ProductImageProps[];
 }

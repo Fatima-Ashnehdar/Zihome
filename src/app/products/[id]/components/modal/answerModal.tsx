@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
 import { AnswerModalProps } from "../../types";
+import { useProductIdStore } from "@/store/useProductStore";
 
 const questionModal = {
   title: "به این پرسش پاسخ دهید.",
@@ -21,7 +22,8 @@ const questionModal = {
   hideName: "عدم نمایش نام شما در پرسش ها",
 };
 
-export function AnswerModal({ answer, icon }: AnswerModalProps) {
+export function AnswerModal({ answer, question }: AnswerModalProps) {
+  // const product = useProductIdStore((state) => state.product);
   return (
     <Dialog>
       <form>
@@ -31,7 +33,7 @@ export function AnswerModal({ answer, icon }: AnswerModalProps) {
             <Button variant={"ghost"}>
               <div className="flex items-center gap-x-3">
                 <p className="text-xs text-gray-800">{answer}</p>
-                {icon}
+                {/* {icon} */}
               </div>
             </Button>
           }
@@ -45,7 +47,7 @@ export function AnswerModal({ answer, icon }: AnswerModalProps) {
           </DialogHeader>
 
           <div className="flex flex-col gap-y-3 mb-4">
-            <p className="text-base text-gray-900">{questionModal.submitQuestion}</p>
+            <p className="text-base text-gray-900">{question}</p>
             <Input placeholder="پاسخ" className="px-4 pt-6 pb-20" />
             <div className="flex items-center gap-x-2 pr-3 pt-1">
               <Checkbox />

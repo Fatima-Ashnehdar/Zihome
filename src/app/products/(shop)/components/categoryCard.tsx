@@ -1,13 +1,14 @@
 /** @format */
+
 import Image from "next/image";
 import Link from "next/link";
 
 import { CategoryCardProps } from "../types";
 
-export function CategoryCard({ name, image }: CategoryCardProps) {
+export function CategoryCard({ name, image, id }: CategoryCardProps) {
   return (
     <Link
-      href="/products/category"
+      href={`/products/category?categoryId=${id}`}
       className="flex flex-col justify-center items-center gap-y-4 border-2 rounded-2xl w-full py-4 cursor-pointer shadow-card bg-white
       hover:shadow-card-hover active:shadow-card-active"
     >

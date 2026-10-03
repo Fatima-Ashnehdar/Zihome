@@ -1,6 +1,6 @@
-/** @format */
+"use client";
 
-// TODO: wire filters & tab sorting
+/** @format */
 
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -8,14 +8,27 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CategoriesCardProps } from "../types/index";
 import { CategoryList } from "./list";
 
+import { useRouter, useSearchParams } from "next/navigation";
+
 export interface CategoriesFilterProps {
   category: CategoriesCardProps[];
 }
 
 export function CategoryTab({ category }: CategoriesFilterProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const sort = searchParams.get("sort") || "decoration";
+
+  const handleSort = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("sort", value);
+    router.push(`?${params.toString()}`);
+  };
+
   return (
     <div>
-      <Tabs defaultValue="decoration">
+      <Tabs value={sort} onValueChange={handleSort}>
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-x-2">
             <span className="inline-block w-1 h-10 bg-red-500 rounded-tr-4xl rounded-br-4xl" />
