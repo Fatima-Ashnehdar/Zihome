@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 export interface CartItem {
-  id: number;
+  id: string;
   picture: string;
   name: string;
   color: string;
@@ -11,9 +11,9 @@ export interface CartItem {
 export interface Cart {
   items: CartItem[];
   addItem: (id: CartItem) => void;
-  plusCount: (id: number) => void;
-  minusCount: (id: number) => void;
-  counter: (id: number) => number;
+  plusCount: (id: string) => void;
+  minusCount: (id: string) => void;
+  counter: (id: string) => number;
 }
 
 export const useCartStore = create<Cart>((set, get) => ({

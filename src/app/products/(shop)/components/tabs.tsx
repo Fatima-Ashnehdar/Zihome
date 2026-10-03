@@ -1,6 +1,6 @@
-/** @format */
+"use client";
 
-// TODO: wire filters & tab sorting
+/** @format */
 
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -9,17 +9,29 @@ import { ProductList } from "./list";
 
 import { ProductCardProps } from "../types";
 
+import { useRouter, useSearchParams } from "next/navigation";
+
 export interface ProductFilterProps {
   products: ProductCardProps[];
 }
 
 export function ProductTab({ products }: ProductFilterProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const sort = searchParams.get("sort") || "decoration";
+
+  const handleSort = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("sort", value);
+    router.push(`?${params.toString()}`);
+  };
   return (
     <div>
-      <Tabs defaultValue="decoration">
+      <Tabs value={sort} onValueChange={handleSort}>
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-x-2">
-            <span className="inline-block w-1 h-10 bg-red-500 rounded-tr-4xl rounded-br-4xl"></span>
+            <span className="inline-block w-1 h-10 bg-red-500 rounded-tr-4xl rounded-br-4xl" />
             <TabsList variant="line" className="flex gap-x-8">
               <TabsTrigger value="decoration">
                 <p className="text-base"> دکوراسیون</p>

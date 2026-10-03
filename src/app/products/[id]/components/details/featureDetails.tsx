@@ -8,10 +8,6 @@ import { StarCheckIcon } from "lucide-react";
 
 import { SelectBox } from "./selectBox";
 
-import { toRialMoney } from "@/app/products/(shop)/utils/index";
-
-import mainPicture from "@public/pictures/details/main-pic.png";
-
 import { useProductIdStore } from "@/store/useProductStore";
 
 import { FeaturesDetailsProps, SpecificationProps } from "../../types";
@@ -43,10 +39,12 @@ export function FeaturesDetails() {
           <p className="text-xs text-gray-700">سفید</p>
         </div>
       </div>
-      <div className="flex flex-col gap-y-3 border-b-2 border-dashed pb-9">
-        <p className="text-base text-gray-900">گارانتی</p>
-        <SelectBox />
-      </div>
+      {product.hasWarranty && (
+        <div className="flex flex-col gap-y-3 border-b-2 border-dashed pb-9">
+          <p className="text-base text-gray-900">گارانتی</p>
+          <SelectBox />
+        </div>
+      )}
       <div>
         <p className="text-lg text-gray-700">ویژگی های اصلی</p>
         <div className="flex flex-col gap-y-2 pt-3">

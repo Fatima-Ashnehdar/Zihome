@@ -16,6 +16,8 @@ export async function ProductsAPI(params?: {
   maxPrice?: number;
   inStock?: boolean;
   hasDiscount?: boolean;
+  hasWarranty?: boolean;
+  hasColorOptions?: boolean;
 }) {
   const { data } = await axios.get("http://localhost:3000/api/v1/products", {
     params,
