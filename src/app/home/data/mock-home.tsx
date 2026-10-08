@@ -6,6 +6,11 @@ import picture5 from "@public/pictures/home/picture-2.png";
 import picture6 from "@public/pictures/home/picture-3.png";
 import picture7 from "@public/pictures/home/picture-4.png";
 
+import photo1 from "@public/pictures/home/pic-10.png";
+import photo2 from "@public/pictures/home/image-3.png";
+import photo3 from "@public/pictures/home/pic-8.png";
+import photo4 from "@public/pictures/home/pic-9.png";
+
 import image1 from "@public/pictures/home/image-1.png";
 import image2 from "@public/pictures/home/image-2.png";
 import image3 from "@public/pictures/home/image-3.png";
@@ -19,6 +24,9 @@ import frame1 from "@public/pictures/home/frame-1.png";
 import frame2 from "@public/pictures/home/frame-2.png";
 import frame3 from "@public/pictures/home/frame-3.png";
 import frame4 from "@public/pictures/home/frame-4.png";
+
+import background1 from "@public/pictures/home/credit-purchase-1.png";
+import background2 from "@public/pictures/home/credit-purchase-2.png";
 
 import { ArrowLeft } from "lucide-react";
 
@@ -159,3 +167,105 @@ export const mockBlog = {
     },
   ],
 };
+
+export const mockBannerWooden = {
+  title: "محصولات چوبینه زی هوم",
+  paragraph: "چیدمان خاص به سبک زی هوم",
+};
+
+export const mockPopular = {
+  title: "محبوب ترین",
+  products: [
+    {
+      id: 1,
+      title: "مبلمان کرفت بالسا",
+      score: "۴.۳",
+      model: "Furniture-woolen-0048",
+      discount: "۳۰٪",
+      previousPrice: 2400000,
+      currentPrice: 1640000,
+      picture: photo1,
+    },
+    {
+      id: 2,
+      title: "لوستر استیل",
+      score: "۴.۳",
+      model: "N-lITE 203 aIRlINKS",
+      discount: "۳۰٪",
+      previousPrice: 2400000,
+      currentPrice: 1640000,
+      picture: photo2,
+    },
+    {
+      id: 3,
+      title: "کوسن لینن",
+      score: "۴.۳",
+      model: "Cusion-Linen-546",
+      discount: "۳۰٪",
+      previousPrice: 2400000,
+      currentPrice: 1640000,
+      picture: photo3,
+    },
+    {
+      id: 4,
+      title: "آباژور رومیزی ",
+      score: "۴.۳",
+      model: "N-lITE 203 aIRlINKS",
+      discount: "۳۰٪",
+      previousPrice: 2400000,
+      currentPrice: 1640000,
+      picture: photo4,
+    },
+  ],
+};
+
+export const mockBannerCreditPurchase = {
+  title: "خریــــد اعتباری!",
+  description: [
+    {
+      id: 1,
+      title: "قهوه سازهای اسمگ",
+      text: "آشپزخانه مدرن با زی هوم",
+      picture: background1,
+      direction: "right",
+    },
+    {
+      id: 2,
+      title: "سرویس هاس قابلمه متنوع",
+      text: "زی هوم، حال خوب آشپزخانه",
+      picture: background2,
+      direction: "left",
+    },
+  ],
+};
+
+export const mockSearchMade = [
+  {
+    id: 1,
+    title: "بیشترین جستجو های اخیر",
+    search: [
+      { id: 1, title: "اسمگ" },
+      { id: 2, title: "یخچال فریزر" },
+      { id: 3, title: "تخت خواب" },
+      { id: 4, title: "سرویس غذاخوری" },
+      { id: 5, title: "جاروبرقی" },
+      { id: 6, title: "لوازم کمپ" },
+      { id: 7, title: "تلوزیون" },
+      { id: 8, title: "سرویس ارکوپال" },
+    ],
+  },
+  {
+    id: 2,
+    title: "جستجو پر طرفدار",
+    search: [
+      { id: 1, title: "سرویس ارکوپال" },
+      { id: 2, title: "میز عسلی" },
+      { id: 3, title: "سطل" },
+      { id: 4, title: "تخت خواب" },
+      { id: 5, title: "بشقاب" },
+      { id: 6, title: "جاروبرقی" },
+      { id: 7, title: "صندلی فلزی" },
+      { id: 8, title: "تلوزیون" },
+    ],
+  },
+];

@@ -8,6 +8,7 @@ import { ProductTab } from "../components/tabs";
 import { CategoryTab } from "../category/components/tabs";
 
 import { ProductsAPI } from "../api/data-products";
+
 import { useEffect, useState } from "react";
 
 export function LayoutTab() {
@@ -22,6 +23,7 @@ export function LayoutTab() {
   const sort = searchParams.get("sort");
   const inStock = searchParams.get("inStock");
   const hasDiscount = searchParams.get("hasDiscount");
+  const search = searchParams.get("search");
 
   const [productsData, setProductsData] = useState([]);
 
@@ -34,8 +36,9 @@ export function LayoutTab() {
       hasDiscount: hasDiscount === "true" ? true : undefined,
       minPrice: minPrice ? Number(minPrice) : undefined,
       maxPrice: maxPrice ? Number(maxPrice) : undefined,
+      search: search || undefined,
     }).then(setProductsData);
-  }, [categoryId, brandId, minPrice, maxPrice, sort, inStock, hasDiscount]);
+  }, [categoryId, brandId, minPrice, maxPrice, sort, inStock, hasDiscount, search]);
 
   return (
     <div>
