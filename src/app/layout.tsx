@@ -3,9 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-import { Footer } from "@/layout/footer/footer";
-import { Header } from "@/layout/header/header";
-
 const shabnam = localFont({
   src: [
     {
@@ -49,15 +46,11 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="fa"
+      dir="rtl"
       className={`${shabnam.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </body>
-      {/* <body className="min-h-full flex flex-col">{children}</body> */}
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

@@ -17,9 +17,8 @@ import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { ProductsAPI } from "@/app/products/(shop)/api/data-products";
-
 import { SearchMade } from "./searchMade";
+import { ProductsAPI } from "@/app/(web)/products/(shop)/api/data-products";
 
 export function HeaderSearch() {
   const router = useRouter();

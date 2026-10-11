@@ -46,4 +46,5 @@ export async function decrypt(session: string | undefined = "") {
 export async function deleteSession() {
   const cookieStore = await cookies();
   cookieStore.delete("session");
+  cookieStore.delete("accessToken");
 }

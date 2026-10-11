@@ -26,8 +26,8 @@
 //   },
 // }));
 import { create } from "zustand";
-import { ProductId } from "@/app/products/[id]/api/data";
 import { Product } from "@/types";
+import { ProductId } from "@/app/(web)/products/[id]/api/data";
 
 export interface ProductStore {
   product: Product | null;
