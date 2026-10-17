@@ -4,9 +4,7 @@ import { jwtVerify } from "jose";
 const AUTH_COOKIE = "accessToken";
 
 function getJwtSecret() {
-  return new TextEncoder().encode(
-    process.env.JWT_SECRET ?? "dev-jwt-secret-min-32-chars-long!!",
-  );
+  return new TextEncoder().encode(process.env.JWT_SECRET ?? "dev-jwt-secret-min-32-chars-long!!");
 }
 
 async function isAuthenticated(request: NextRequest) {
@@ -35,7 +33,7 @@ export async function middleware(request: NextRequest) {
   }
 
   if (isLoginPage && loggedIn) {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+    return NextResponse.redirect(new URL("/dashboard/wallet", request.url));
   }
 
   return NextResponse.next();
