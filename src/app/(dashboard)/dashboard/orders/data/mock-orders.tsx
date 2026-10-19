@@ -2,6 +2,7 @@ import picture1 from "@public/pictures/dashboard/pic-1.png";
 import picture2 from "@public/pictures/dashboard/pic-2.png";
 import picture3 from "@public/pictures/dashboard/pic-3.png";
 import picture4 from "@public/pictures/dashboard/pic-4.png";
+import picture from "@public/pictures/dashboard/picture.png";
 
 import { ShoppingCart } from "lucide-react";
 
@@ -55,3 +56,15 @@ export const items = [
   { label: "مرجوعی", value: "blueberry" },
   { label: "لغو شده", value: "grapes" },
 ];
+
+export const statusStyles: Record<string, string> = {
+  "در حال ارسال": "bg-cream-100 text-red-600",
+  "لغو شده": "bg-red-100 text-red-600",
+  "تحویل شده": "bg-green-100 text-green-600",
+  "مرجوع شده": "bg-gray-50 text-gray-600",
+};
+
+export const historyNoOrders = {
+  title: "هنوز سفارشی ثبت نکرده اید",
+  picture,
+};

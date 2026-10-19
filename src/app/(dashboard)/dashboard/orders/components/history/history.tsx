@@ -3,8 +3,8 @@
 import { Separator } from "@/components/ui/separator";
 
 import { HistoryTitle } from "./title";
-import { HistorySelect } from "./select";
 import { HistoryTable } from "./table";
+import { Filter } from "../../../../components/filter";
 
 export function OrdersHistory() {
   return (
@@ -12,7 +12,7 @@ export function OrdersHistory() {
       <HistoryTitle />
       <Separator className="my-6" />
       <div className="flex flex-col gap-y-8">
-        <HistorySelect />
+        <Filter />
         <HistoryTable />
       </div>
     </div>
