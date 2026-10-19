@@ -87,7 +87,7 @@ export async function verifyCode(state: FormState, formData: FormData): Promise<
     };
   }
 
-  redirect("/dashboard");
+  redirect("/dashboard/wallet");
 }
 
 export async function changePassword(state: FormState, formData: FormData): Promise<FormState> {
