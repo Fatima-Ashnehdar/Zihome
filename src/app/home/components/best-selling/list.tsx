@@ -1,14 +1,20 @@
 /**@format */
 
-import { mockBestSelling } from "../../data/mock-home";
+import { ProposalCardProps } from "../../types";
 
 import { ProductCard } from "./card";
 
-export function ProductsList() {
+interface PropsCard {
+  products: ProposalCardProps[];
+}
+
+export function ProductsList({ products }: PropsCard) {
   return (
     <div className="flex gap-x-6">
-      {mockBestSelling.products.map((product) => (
-        <ProductCard key={product.id} {...product} />
+      {products.map((product) => (
+        <div key={product.id} className="w-full">
+          <ProductCard {...product} />
+        </div>
       ))}
     </div>
   );

@@ -8,22 +8,26 @@ import { mockBannerWooden } from "../../data/mock-home";
 
 import { ChevronLeft } from "lucide-react";
 
+import Link from "next/link";
+
 export function BannerWooden() {
   return (
     <div
       style={{ backgroundImage: `url(${background.src})` }}
-      className="flex flex-col gap-y-10 rounded-xl bg-cover px-10 pt-10 pb-15"
+      className="flex flex-col gap-y-[30%] rounded-xl bg-cover px-[4%] pt-[4%] pb-15 aspect-5/1"
     >
       <div className="flex flex-col gap-y-3">
         <p className="text-2xl text-white">{mockBannerWooden.title}</p>
         <p className="text-base text-white">{mockBannerWooden.paragraph}</p>
       </div>
-      <Button size={"xl"} className="w-fit">
-        <div className="flex gap-x-3">
-          <p>مشاهده همه</p>
-          <ChevronLeft />
-        </div>
-      </Button>
+      <Link href={"/products/category?categoryId=cmtn2zkej000bvtp0w5el41pz"}>
+        <Button size={"xl"} className="w-fit">
+          <div className="flex gap-x-3">
+            <p>مشاهده همه</p>
+            <ChevronLeft />
+          </div>
+        </Button>
+      </Link>
     </div>
   );
 }

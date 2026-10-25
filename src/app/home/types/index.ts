@@ -3,18 +3,18 @@ import { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 
 export interface ProposalCardProps {
-  id: number;
+  id: string;
   previousPrice: number;
   currentPrice: number;
   discount: string;
   title: string;
   model: string;
   score: string;
-  picture: StaticImageData;
+  photo: StaticImageData;
 }
 
 export interface CategoryCardProps {
-  id: number;
+  id: string;
   title: string;
   picture: StaticImageData;
 }

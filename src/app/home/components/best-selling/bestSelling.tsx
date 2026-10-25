@@ -1,13 +1,19 @@
 /**@format */
 
+import { ProposalCardProps } from "../../types";
+
 import { ProductsTab } from "./tabs";
 import { ProductsTitle } from "./title";
 
-export function BestSelling() {
+interface PropsCard {
+  products: ProposalCardProps[];
+}
+
+export function BestSelling({ products }: PropsCard) {
   return (
     <div className="flex flex-col gap-y-5">
       <ProductsTitle />
-      <ProductsTab />
+      <ProductsTab products={products} />
     </div>
   );
 }

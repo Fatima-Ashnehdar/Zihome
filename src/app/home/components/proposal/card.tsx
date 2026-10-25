@@ -10,8 +10,11 @@ import { StarCheckIcon } from "lucide-react";
 
 import { Toggle } from "@/components/ui/toggle";
 
+import Link from "next/link";
+
 export function ProposalCard({
-  picture,
+  id,
+  photo,
   title,
   score,
   model,
@@ -20,11 +23,12 @@ export function ProposalCard({
   currentPrice,
 }: ProposalCardProps) {
   return (
-    <div
+    <Link
+      href={`/products/${id}`}
       className="flex flex-col gap-y-4 hover:shadow-card-hover active:shadow-card-active cursor-pointer shadow-card 
     border-2 rounded-2xl bg-white px-4 py-6"
     >
-      <Image src={picture} alt="photos-recommended-products" />
+      <Image src={photo} alt="photos-recommended-products" />
       <div className="flex flex-col gap-y-14">
         <div className="flex justify-between items-start">
           <div className="flex flex-col gap-y-2">
@@ -51,6 +55,6 @@ export function ProposalCard({
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 
 import { toRialMoney } from "@/app/products/(shop)/utils";
 
+import Link from "next/link";
+
 export function Timer() {
   const [time, setTime] = useState(18 * 60 * 60 + 13 * 60 + 40);
 
@@ -48,13 +50,15 @@ export function Timer() {
       </div>
 
       <div className="flex flex-col gap-y-2 relative">
-        <Button className="-ml-5">
-          <div className="flex gap-x-4">
-            <p className="font-normal">مشاهده همه</p>
-            <ChevronLeft />
-          </div>
-        </Button>
-        <div className="absolute bg-white px-5 py-3 rounded-t-lg">
+        <Link href={"/products"}>
+          <Button className="pr-[25%]">
+            <div className="flex gap-x-4">
+              <p className="font-normal">مشاهده همه</p>
+              <ChevronLeft />
+            </div>
+          </Button>
+        </Link>
+        <div className="absolute bg-white px-[5%] pb-[9%] pt-[3%] rounded-t-lg">
           <ClockFading className="text-yellow-500" />
         </div>
         <div className="flex flex-row-reverse gap-x-4 justify-center items-center bg-white rounded-md pb-4 pt-7 ml-5">
