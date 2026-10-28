@@ -5,8 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 import { mockAbout, mockLogoApp } from "@/layout/data/mockLayout";
-
-import { toRialMoney } from "@/app/products/(shop)/utils";
+import { toRialMoney } from "@/app/(web)/products/(shop)/utils";
 
 export function FooterAbout() {
   return (

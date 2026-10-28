@@ -1,6 +1,6 @@
 /**@format */
 
-import { mockSearchMade } from "@/app/home/data/mock-home";
+import { mockSearchMade } from "@/app/(web)/home/data/mock-home";
 
 export function SearchMade() {
   return (
