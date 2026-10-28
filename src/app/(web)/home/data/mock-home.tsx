@@ -32,32 +32,32 @@ import { ArrowLeft } from "lucide-react";
 
 export const mockProposal = [
   {
-    id: 1,
+    id: "cmtn2zkfu001tvtp0a4k7t7d4",
     score: "۴.۳",
     title: "قهوه ساز دلونگی",
     model: "N-lITE 203 aIRlINKS",
     discount: "۳۰٪",
-    picture: picture1,
+    photo: picture1,
     previousPrice: 2400000,
     currentPrice: 1640000,
   },
   {
-    id: 2,
+    id: "cmtn2zkf5000qvtp08ebillxz",
     score: "۴.۳",
     title: "استند چوبی آشپزخانه",
     model: "N-lITE 203 aIRlINKS",
     discount: "۳۰٪",
-    picture: picture2,
+    photo: picture2,
     previousPrice: 2400000,
     currentPrice: 1640000,
   },
   {
-    id: 3,
+    id: "cmtn2zkgu0039vtp07tubcpsm",
     score: "۴.۳",
     title: "مبل دونفره سپنتا",
     model: "Sepanta-01-NDF",
     discount: "۳۰٪",
-    picture: picture3,
+    photo: picture3,
     previousPrice: 2400000,
     currentPrice: 1640000,
   },
@@ -66,10 +66,10 @@ export const mockProposal = [
 export const mockCategory = {
   title: "دسته بندی محصولات",
   category: [
-    { id: 1, title: "دکوراسیون", picture: image1 },
-    { id: 2, title: "لوازم آشپزخانه", picture: image2 },
-    { id: 3, title: "نور و روشنایی", picture: image3 },
-    { id: 4, title: "لوازم برقی", picture: image4 },
+    { id: "cmtn2zkej000bvtp0w5el41pz", title: "دکوراسیون", picture: image1 },
+    { id: "cmtn2zkef0009vtp0lv5qbowp", title: "لوازم آشپزخانه", picture: image2 },
+    { id: "cmtn2zkeh000avtp036kd47kc", title: "نور و روشنایی", picture: image3 },
+    { id: "cmtn2zkec0008vtp0raceo7aw", title: "لوازم برقی", picture: image4 },
   ],
 };
 
@@ -86,48 +86,6 @@ export const mockBanner = {
 
 export const mockBestSelling = {
   title: "پرفروش ترین محصولات",
-  products: [
-    {
-      id: 1,
-      title: "یخچال فریزر امرسان",
-      score: "۴.۳",
-      model: "N-lITE 203 aIRlINKS",
-      discount: "۳۰٪",
-      previousPrice: 2400000,
-      currentPrice: 1640000,
-      picture: picture4,
-    },
-    {
-      id: 2,
-      title: "قهوه ساز نسپرسو",
-      score: "۴.۳",
-      model: "N-lITE 203 aIRlINKS",
-      discount: "۳۰٪",
-      previousPrice: 2400000,
-      currentPrice: 1640000,
-      picture: picture5,
-    },
-    {
-      id: 3,
-      title: "ست بشقاب سرامیکی سرو",
-      score: "۴.۳",
-      model: "Plate-Ceramic-0048",
-      discount: "۳۰٪",
-      previousPrice: 2400000,
-      currentPrice: 1640000,
-      picture: picture6,
-    },
-    {
-      id: 4,
-      title: "سرخ کن بدون روغن",
-      score: "۴.۳",
-      model: "N-lITE 203 aIRlINKS",
-      discount: "۳۰٪",
-      previousPrice: 2400000,
-      currentPrice: 1640000,
-      picture: picture7,
-    },
-  ],
 };
 
 export const mockBlog = {
@@ -175,62 +133,20 @@ export const mockBannerWooden = {
 
 export const mockPopular = {
   title: "محبوب ترین",
-  products: [
-    {
-      id: 1,
-      title: "مبلمان کرفت بالسا",
-      score: "۴.۳",
-      model: "Furniture-woolen-0048",
-      discount: "۳۰٪",
-      previousPrice: 2400000,
-      currentPrice: 1640000,
-      picture: photo1,
-    },
-    {
-      id: 2,
-      title: "لوستر استیل",
-      score: "۴.۳",
-      model: "N-lITE 203 aIRlINKS",
-      discount: "۳۰٪",
-      previousPrice: 2400000,
-      currentPrice: 1640000,
-      picture: photo2,
-    },
-    {
-      id: 3,
-      title: "کوسن لینن",
-      score: "۴.۳",
-      model: "Cusion-Linen-546",
-      discount: "۳۰٪",
-      previousPrice: 2400000,
-      currentPrice: 1640000,
-      picture: photo3,
-    },
-    {
-      id: 4,
-      title: "آباژور رومیزی ",
-      score: "۴.۳",
-      model: "N-lITE 203 aIRlINKS",
-      discount: "۳۰٪",
-      previousPrice: 2400000,
-      currentPrice: 1640000,
-      picture: photo4,
-    },
-  ],
 };
 
 export const mockBannerCreditPurchase = {
   title: "خریــــد اعتباری!",
   description: [
     {
-      id: 1,
+      id: "cmtn2zkej000bvtp0w5el41pz",
       title: "قهوه سازهای اسمگ",
       text: "آشپزخانه مدرن با زی هوم",
       picture: background1,
       direction: "right",
     },
     {
-      id: 2,
+      id: "cmtn2zkef0009vtp0lv5qbowp",
       title: "سرویس هاس قابلمه متنوع",
       text: "زی هوم، حال خوب آشپزخانه",
       picture: background2,

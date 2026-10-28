@@ -206,45 +206,50 @@ export const mockTabsListMenu = [
 
 export const mockKitchenAppliances = {
   title: "همه لوازم آشپزخانه",
+  link: "/products",
   icon: <ChevronLeft className="text-primary" />,
   category: [
     {
       id: 1,
       title: "سازماندهی آشپزخانه",
+      link: "/products/category",
       icon: <ChevronLeft className="text-gray-600" />,
-      links: [
-        { id: 1, link: "نظم دهنده کابینت" },
-        { id: 2, link: "شلف و کشو" },
+      texts: [
+        { id: 1, title: "نظم دهنده کابینت", link: "cmtn2zkgl002wvtp0hx7s8iq3" },
+        { id: 2, title: "شلف و کشو", link: "cmtn2zkgu0039vtp07tubcpsm" },
       ],
     },
     {
       id: 2,
       title: "لوازم برقی آشپزخانه",
+      link: "/products/category",
       icon: <ChevronLeft className="text-gray-600" />,
-      links: [
-        { id: 1, link: "پلوپز" },
-        { id: 2, link: "ماکروویو" },
-        { id: 3, link: "همزن و مخلوط کن" },
-        { id: 4, link: "یخچال فریزر" },
+      texts: [
+        { id: 1, title: "پلوپز", link: "cmtn2zkfd0013vtp0jza0v75y" },
+        { id: 2, title: "ماکروویو", link: "cmtn2zkfu001tvtp0a4k7t7d4" },
+        { id: 3, title: "همزن و مخلوط کن", link: "cmtn2zkhj0040vtp019w873kj" },
+        { id: 4, title: "یخچال فریزر", link: "cmtn2zkhg003yvtp0pkkhtsvo" },
       ],
     },
     {
       id: 3,
       title: "ظروف پخت و پز",
+      link: "/products/category",
       icon: <ChevronLeft className="text-gray-600" />,
-      links: [
-        { id: 1, link: "سرویس قابلمه" },
-        { id: 2, link: "زودپز" },
+      texts: [
+        { id: 1, title: "سرویس قابلمه", link: "cmtn2zkgc002jvtp09u884zgn" },
+        { id: 2, title: "زودپز", link: "cmtn2zkep000dvtp00j096gdh" },
       ],
     },
     {
       id: 4,
       title: "ظروف پذیرایی",
+      link: "/products/category",
       icon: <ChevronLeft className="text-gray-600" />,
-      links: [
-        { id: 1, link: "بشقاب و لیوان" },
-        { id: 2, link: "سرویس چایخوری" },
-        { id: 3, link: "سرویس چینی" },
+      texts: [
+        { id: 1, title: "بشقاب و لیوان", link: "cmtn2zkf5000qvtp08ebillxz" },
+        { id: 2, title: "سرویس چایخوری", link: "cmtn2zkhe003wvtp0n250xsev" },
+        { id: 3, title: "سرویس چینی", link: "cmtn2zkg30026vtp03xb7aed3" },
       ],
     },
   ],

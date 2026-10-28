@@ -7,10 +7,11 @@ import { StarCheckIcon } from "lucide-react";
 import { Toggle } from "@/components/ui/toggle";
 
 import Image from "next/image";
-import { toRialMoney } from "@/app/(web)/products/(shop)/utils";
+import Link from "next/link";
 
 export function PopularCard({
-  picture,
+  id,
+  photo,
   title,
   score,
   model,
@@ -19,11 +20,20 @@ export function PopularCard({
   currentPrice,
 }: ProposalCardProps) {
   return (
-    <div
+    <Link
+      href={`/products/${id}`}
       className="flex flex-col gap-y-4 hover:shadow-card-hover active:shadow-card-active cursor-pointer shadow-card 
     border-2 rounded-2xl bg-white px-4 py-6"
     >
-      <Image src={picture} alt="photos-recommended-products" className="w-68" />
+      <div className="flex justify-center">
+        <Image
+          src={photo}
+          width={100}
+          height={100}
+          alt="photos-recommended-products"
+          className="w-68"
+        />
+      </div>
       <div className="flex flex-col gap-y-14">
         <div className="flex justify-between items-start">
           <div className="flex flex-col gap-y-2">
@@ -50,6 +60,6 @@ export function PopularCard({
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

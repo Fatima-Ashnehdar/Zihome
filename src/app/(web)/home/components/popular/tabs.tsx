@@ -1,46 +1,61 @@
+"use client";
+
 /**@format */
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { PopularList } from "./list";
 
-export function PopularTabs() {
+import { useRouter, useSearchParams } from "next/navigation";
+
+import { ProposalCardProps } from "../../types";
+
+interface ProposalProps {
+  products: ProposalCardProps[];
+}
+
+export function PopularTabs({ products }: ProposalProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const sort = searchParams.get("sort") || "decoration";
+
+  const handleSort = (value: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("sort", value);
+    router.push(`?${params.toString()}`);
+  };
+
   return (
-    <Tabs defaultValue="decoration">
+    <Tabs value={sort} onValueChange={handleSort}>
       <div className="flex items-center gap-x-2 mb-6">
         <span className="inline-block w-1 h-10 bg-red-500 rounded-tr-4xl rounded-br-4xl" />
         <TabsList variant="line" className="flex gap-x-8">
           <TabsTrigger value="decoration">
             <p className="text-base"> دکوراسیون</p>
           </TabsTrigger>
-          <TabsTrigger value="kitchen">
-            <p className="text-base">آشپزخانه</p>
+          <TabsTrigger value="latest">
+            <p className="text-base">جدیدترین</p>
           </TabsTrigger>
-          <TabsTrigger value="electrical-appliances">
-            <p className="text-base">لوازم برقی</p>
+          <TabsTrigger value="best-selling">
+            <p className="text-base">پرفروش ترین</p>
           </TabsTrigger>
-          <TabsTrigger value="supplies&equipment">
-            <p className="text-base">لوازم و تجهیزات</p>
-          </TabsTrigger>
-          <TabsTrigger value="light&brightness">
-            <p className="text-base">نور و روشنایی</p>
+          <TabsTrigger value="buyers-recommendations">
+            <p className="text-base">پیشنهاد خریداران</p>
           </TabsTrigger>
         </TabsList>
       </div>
       <TabsContent value="decoration">
-        <PopularList />
+        <PopularList products={products} />
       </TabsContent>
-      <TabsContent value="kitchen">
-        <PopularList />
+      <TabsContent value="latest">
+        <PopularList products={products} />
       </TabsContent>
-      <TabsContent value="electrical-appliances">
-        <PopularList />
+      <TabsContent value="best-selling">
+        <PopularList products={products} />
       </TabsContent>
-      <TabsContent value="supplies&equipment">
-        <PopularList />
-      </TabsContent>
-      <TabsContent value="light&brightness">
-        <PopularList />
+      <TabsContent value="buyers-recommendations">
+        <PopularList products={products} />
       </TabsContent>
     </Tabs>
   );
