@@ -5,14 +5,15 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 import { mockAbout, mockLogoApp } from "@/layout/data/mockLayout";
+
 import { toRialMoney } from "@/app/(web)/products/(shop)/utils";
 
 export function FooterAbout() {
   return (
-    <div className="flex flex-col gap-y-5">
-      <Image alt="logo-picture" src={mockAbout.picture} className="w-[24%]" />
-      <p className="text-base text-gray-900 font-bold">{mockAbout.title}</p>
-      <div className="flex flex-col gap-y-2">
+    <div className="flex flex-col gap-y-3 sm:gap-y-5">
+      <Image alt="logo-picture" src={mockAbout.picture} className="w-[20%] lg:w-[24%]" />
+      <p className="text-xs xs:text-sm sm:text-base text-gray-900 font-bold">{mockAbout.title}</p>
+      <div className="flex flex-col gap-y-1 sm:gap-y-2">
         {mockAbout.paragraphLines.map((line) => (
           <p key={line.id} className={line.color}>
             {line.text}
@@ -20,21 +21,23 @@ export function FooterAbout() {
         ))}
         <div>
           <Button variant={"ghost"} className="px-0 hover:px-2 hover:py-1">
-            <p>مشاهده بیشتر...</p>
+            <p className="text-[10px] xs:text-xs sm:text-sm">مشاهده بیشتر...</p>
           </Button>
         </div>
       </div>
       <div className="flex flex-col gap-y-2">
         <div className="flex items-center gap-x-2">
-          <p className="text-sm text-gray-900">تلفن پشتیبانی:</p>
-          <p className="text-sm text-gray-900">{toRialMoney(mockAbout.phoneNumber)}</p>
+          <p className="text-[10px] xs:text-xs sm:text-sm text-gray-900">تلفن پشتیبانی:</p>
+          <p className="text-[10px] xs:text-xs sm:text-sm text-gray-900">
+            {toRialMoney(mockAbout.phoneNumber)}
+          </p>
         </div>
-        <div className="flex items-center justify-between">
-          <p className="text-sm text-gray-900">{mockAbout.text}</p>
+        <div className="flex items-center gap-x-8 xs:gap-x-12 sm:gap-x-14 lg:justify-between">
+          <p className="text-[10px] xs:text-xs sm:text-sm text-gray-900">{mockAbout.text}</p>
           <div className="flex items-center">
             {mockLogoApp.map((item) => (
               <div key={item.id} className="flex">
-                <Image alt="logo" src={item.logo} className="w-12" />
+                <Image alt="logo" src={item.logo} className="w-4 xs:w-6 sm:w-8 xl:w-10 2xl:w-12" />
               </div>
             ))}
           </div>

@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { SearchMade } from "./searchMade";
+
 import { ProductsAPI } from "@/app/(web)/products/(shop)/api/data-products";
 
 export function HeaderSearch() {
@@ -45,7 +46,7 @@ export function HeaderSearch() {
   };
 
   return (
-    <div className="relative w-[50%]">
+    <div className="relative w-full lg:w-[50%]">
       <Combobox
         items={products}
         onValueChange={(value: any) => {
@@ -57,7 +58,6 @@ export function HeaderSearch() {
       >
         <div className="relative">
           <ComboboxInput
-            placeholder="جستجو"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={(e) => {
@@ -65,24 +65,28 @@ export function HeaderSearch() {
                 handleSearch();
               }
             }}
-            className="h-11 pr-10"
+            className="h-9 text-gray-500 font-normal xs:h-10 sm:h-11 pr-9 md:pr-10 w-full lg:w-82 xl:w-110 2xl:w-149 rounded-full"
           />
 
           <Search
             onClick={handleSearch}
-            className="absolute right-4 top-3 size-4.5 cursor-pointer text-gray-400"
+            className="absolute right-4 top-2.5 sm:top-3 size-4 xs:size-4.5 cursor-pointer text-gray-400"
           />
         </div>
 
         {search && (
-          <ComboboxContent dir="rtl">
+          <ComboboxContent dir="rtl" className="overflow-y-auto">
             <ComboboxEmpty>محصولی پیدا نشد</ComboboxEmpty>
 
-            <ComboboxList className="flex flex-col gap-y-3 py-4">
+            <ComboboxList className="flex flex-col gap-y-1 xl:gap-y-2 py-4">
               {(product) => (
-                <ComboboxItem key={product.id} value={product.name} className="flex gap-x-2">
-                  <Search className="size-4 text-gray-400" />
-                  <p className="text-gray-800">{product.name}</p>
+                <ComboboxItem
+                  key={product.id}
+                  value={product.name}
+                  className="flex gap-x-1 md:gap-x-2"
+                >
+                  <Search className="size-3 md:size-4 text-gray-400" />
+                  <p className="text-xs md:text-sm text-gray-800">{product.name}</p>
                 </ComboboxItem>
               )}
             </ComboboxList>

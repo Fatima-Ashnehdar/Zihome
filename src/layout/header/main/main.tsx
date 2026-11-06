@@ -10,6 +10,7 @@ import { HeaderSearch } from "./search";
 
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+
 import { verifyAccessToken } from "@/server/lib/auth-tokens";
 
 import { LayoutDashboard, ShoppingCart, UserRound } from "lucide-react";
@@ -20,16 +21,19 @@ export async function HeaderMain() {
   const user = token ? await verifyAccessToken(token) : null;
 
   return (
-    <div className="flex justify-between bg-white px-30 py-7 border-b">
-      <div className="flex items-center gap-x-4 w-full">
-        <Link href="/" className="w-[11%] shrink-0">
-          <Image alt="logo" src={logo} className="h-9 w-full" />
+    <div className="flex justify-between bg-white px-[8%] py-3 md:py-5 xl:py-7 border-b">
+      <div className="flex items-center gap-x-2 xs:gap-x-4 w-full">
+        <Link
+          href="/"
+          className="w-[25%] xs:w-[21%] sm:w-[16%] lg:w-[18%] xl:w-[16%] 2xl:w-[11%] shrink-0"
+        >
+          <Image alt="logo" src={logo} className="h-5 xs:h-7 lg:h-9 w-full" />
         </Link>
         <HeaderSearch />
       </div>
-      <div className="flex items-center gap-x-4">
+      <div className="hidden lg:flex items-center gap-x-4">
         {user ? (
-          <Link href="/dashboard">
+          <Link href="/dashboard/wallet">
             <Button variant={"login"} size={"xl"}>
               <div className="flex gap-x-2">
                 <LayoutDashboard />

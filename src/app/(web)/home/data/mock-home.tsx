@@ -109,7 +109,7 @@ export const mockBlog = {
     },
     {
       id: 3,
-      question: "فرش ایرانی در خانه مدرن",
+      question: "فرش ایرانی در خانه مدرن و رنگ های آن",
       description: "فرش ایرانی یکی از ارزشمندترین و معروف‌ترین صنایع ",
       date: "۹ آذر ۱۴۰۳",
       icon: <ArrowLeft className="size-5 text-gray-600" />,
@@ -164,24 +164,6 @@ export const mockSearchMade = [
       { id: 2, title: "یخچال فریزر" },
       { id: 3, title: "تخت خواب" },
       { id: 4, title: "سرویس غذاخوری" },
-      { id: 5, title: "جاروبرقی" },
-      { id: 6, title: "لوازم کمپ" },
-      { id: 7, title: "تلوزیون" },
-      { id: 8, title: "سرویس ارکوپال" },
-    ],
-  },
-  {
-    id: 2,
-    title: "جستجو پر طرفدار",
-    search: [
-      { id: 1, title: "سرویس ارکوپال" },
-      { id: 2, title: "میز عسلی" },
-      { id: 3, title: "سطل" },
-      { id: 4, title: "تخت خواب" },
-      { id: 5, title: "بشقاب" },
-      { id: 6, title: "جاروبرقی" },
-      { id: 7, title: "صندلی فلزی" },
-      { id: 8, title: "تلوزیون" },
     ],
   },
 ];

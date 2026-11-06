@@ -8,7 +8,7 @@ import { ChevronUp } from "lucide-react";
 
 export default function ScrollToTop() {
   return (
-    <div className="absolute top-0 left-[13%]">
+    <div className="absolute -top-8 lg:top-0 left-[5.5%] sm:left-[6%] md:left-[6.5%] lg:left-50">
       <Button
         variant={"ghost"}
         onClick={() => {
@@ -19,7 +19,7 @@ export default function ScrollToTop() {
           });
         }}
       >
-        <ChevronUp className="size-6 text-gray-600" />
+        <ChevronUp className="size-5 lg:size-6 text-gray-600" />
       </Button>
     </div>
   );

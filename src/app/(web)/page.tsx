@@ -32,9 +32,9 @@ export default function Home() {
   }, [sort]);
 
   return (
-    <div className="flex flex-col gap-y-12 py-8 mt-[13%] bg-nutral-50">
+    <div className="flex flex-col gap-y-12 py-8 mt-15 xs:mt-18 md:mt-23 lg:mt-40 xl:mt-45 2xl:mt-[12%] bg-nutral-50">
       <Hero />
-      <div dir="rtl" className="flex flex-col gap-y-15 px-30">
+      <div dir="rtl" className="flex flex-col gap-y-6 sm:gap-y-8 xl:gap-y-10 2xl:gap-y-15 px-[8%]">
         <AmazingOfferCards />
         <CategoryList />
         <BannerCollection />
