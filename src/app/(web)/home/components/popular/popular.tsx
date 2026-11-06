@@ -11,7 +11,7 @@ interface PropsCard {
 
 export function Popular({ products }: PropsCard) {
   return (
-    <div className="flex flex-col gap-y-5">
+    <div className="flex flex-col gap-y-1 md:gap-y-3 xl:gap-y-5">
       <PopularTitle />
       <PopularTabs products={products} />
     </div>

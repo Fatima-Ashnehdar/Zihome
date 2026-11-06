@@ -6,16 +6,24 @@ import { mockHeaderDiscount } from "../data/mockLayout";
 
 export function HeaderDiscount() {
   return (
-    <div className="flex justify-between bg-gray-900 px-30 py-3">
-      <div className="flex items-center gap-x-3">
-        <p className="text-sm text-white">{mockHeaderDiscount.title}</p>
+    <div className="flex justify-between bg-gray-900 px-[8%] py-3">
+      <div className="flex items-center gap-x-1 xs:gap-x-2 sm:gap-x-3">
+        <p className="text-[7px] xs:text-[10px] md:text-xs lg:text-sm text-white">
+          {mockHeaderDiscount.title}
+        </p>
         <Separator orientation="vertical" />
-        <p className="text-sm text-white">{mockHeaderDiscount.free}</p>
+        <p className="text-[7px] xs:text-[10px] md:text-xs lg:text-sm text-white">
+          {mockHeaderDiscount.free}
+        </p>
       </div>
-      <div className="flex items-center gap-x-3">
-        <p className="text-sm text-white">{mockHeaderDiscount.discount}</p>
+      <div className="flex items-center gap-x-2 sm:gap-x-3">
+        <p className="text-[7px] xs:text-[10px] md:text-xs lg:text-sm text-white">
+          {mockHeaderDiscount.discount}
+        </p>
         <Separator orientation="vertical" />
-        <p className="text-sm text-white">{mockHeaderDiscount.sell}</p>
+        <p className="text-[7px] xs:text-[10px] md:text-xs lg:text-sm text-white">
+          {mockHeaderDiscount.sell}
+        </p>
       </div>
     </div>
   );

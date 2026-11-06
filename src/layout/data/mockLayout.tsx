@@ -3,7 +3,6 @@ import {
   Menu,
   Sparkles,
   Star,
-  Trophy,
   CircleCheck,
   Truck,
   Armchair,
@@ -17,7 +16,14 @@ import {
   Wallpaper,
   Wrench,
   ChevronLeft,
+  House,
+  LayoutGrid,
+  ShoppingCart,
+  UserRound,
+  MessageCircleMore,
 } from "lucide-react";
+
+import picture from "@public/pictures/home/not-found.png";
 
 import linkedin from "@public/pictures/layout/linkedin.png";
 import twitter from "@public/pictures/layout/twitter.png";
@@ -32,17 +38,29 @@ import line from "@public/pictures/layout/Line.png";
 export const mockFooterLinks = [
   {
     title: "محصولات",
-    link: [
-      { id: 1, text: "مبلمان" },
-      { id: 2, text: "دکوراسیون" },
-      { id: 3, text: "لوازم آشپزخانه" },
-      { id: 4, text: "ابزار خانه" },
-      { id: 5, text: "سرویس خواب" },
+    links: [
+      { id: 1, text: "مبلمان", link: "/products" },
+      { id: 2, text: "دکوراسیون", link: "/products/category?categoryId=cmtn2zkej000bvtp0w5el41pz" },
+      {
+        id: 3,
+        text: "لوازم آشپزخانه",
+        link: "/products/category?categoryId=cmtn2zkef0009vtp0lv5qbowp",
+      },
+      {
+        id: 4,
+        text: "ابزار خانه",
+        link: "/products/category?categoryId=cmtn2zkej000bvtp0w5el41pz",
+      },
+      {
+        id: 5,
+        text: "سرویس خواب",
+        link: "/products/category?categoryId=cmtn2zkef0009vtp0lv5qbowp",
+      },
     ],
   },
   {
     title: "خدمات مشتریان",
-    link: [
+    links: [
       { id: 1, text: "پیگیری سفارش" },
       { id: 2, text: "شرایط و قوانین" },
       { id: 3, text: "روش های ارسال" },
@@ -51,11 +69,11 @@ export const mockFooterLinks = [
   },
   {
     title: "درباره ما",
-    link: [
-      { id: 1, text: "معرفی فروشگاه" },
-      { id: 2, text: "تماس با ما" },
-      { id: 3, text: "همکاری با ما" },
-      { id: 4, text: "وبلاگ" },
+    links: [
+      { id: 1, text: "معرفی فروشگاه", link: "/about" },
+      { id: 2, text: "تماس با ما", link: "/contact" },
+      { id: 3, text: "همکاری با ما", link: "/about" },
+      { id: 4, text: "وبلاگ", link: "/blog" },
     ],
   },
 ];
@@ -71,21 +89,21 @@ export const mockFooterFeature = [
     id: 1,
     title: "ارسال سریع",
     text: "در کمترین زمان ممکن",
-    icon: <Truck className="size-7 text-gray-500" />,
+    icon: <Truck className="size-4 sm:size-5 2xl:size-7 text-gray-500" />,
     border: line,
   },
   {
     id: 2,
     title: "ضمانت بازگشت کالا",
     text: "حداکثر ۱۰ روز کاری",
-    icon: <CircleCheck className="size-7 text-gray-500" />,
+    icon: <CircleCheck className="size-4 sm:size-5 2xl:size-7 text-gray-500" />,
     border: line,
   },
   {
     id: 3,
     title: "اصالت کالا",
     text: "از بهترین برندها",
-    icon: <Box className="size-7 text-gray-500" />,
+    icon: <Box className="size-4 sm:size-5 2xl:size-7 text-gray-500" />,
   },
 ];
 
@@ -95,17 +113,17 @@ export const mockAbout = {
     {
       id: 1,
       text: "فروشگاه ما با ارایه مجموعه ای متنوع از محصولات خانه، تجربه ای آسان و مطمئن برای",
-      color: "text-gray-900 text-sm",
+      color: "text-gray-900 text-[8px] xs:text-[10px] sm:text-xs md:text-sm",
     },
     {
       id: 2,
       text: "خرید آنلاین فراهم کرده است. با ضمانت کیفیت، ارسال سریع و پشتیبانی حرفه ای، همراه",
-      color: "text-gray-600 text-sm",
+      color: "text-gray-600 text-[7px] xs:text-[10px] sm:text-xs md:text-sm",
     },
     {
       id: 3,
       text: "شما هستیم.برای کسب اطلاعات بیشتر درباره خدمات و شرایط فروش،کلیک کنید.",
-      color: "text-gray-300 text-sm",
+      color: "text-gray-300 text-[8px] xs:text-[10px] sm:text-xs md:text-sm",
     },
   ],
   picture: logo,
@@ -136,39 +154,45 @@ export const mockHeaderLinks = [
   {
     id: 1,
     title: "دسته بندی کالاها",
-    icon: <Menu className="size-5 text-primary" />,
+    icon: <Menu className="size-4 xl:size-5 text-primary" />,
+    href: "/products",
     color: true,
     hover: true,
   },
   {
     id: 2,
     title: "شگفت انگیزها",
-    icon: <Sparkles className="size-5 text-gray-600" />,
+    icon: <Sparkles className="size-4 xl:size-5 text-gray-600" />,
+    href: "/products/category",
     color: false,
     hover: false,
   },
   {
     id: 3,
     title: "ترند ترین",
-    icon: <Star className="size-5 text-gray-600" />,
+    icon: <Star className="size-4 xl:size-5 text-gray-600" />,
+    href: "/products/category",
     color: false,
     hover: false,
   },
   {
     id: 4,
-    title: "پرفروش ترین",
-    icon: <Trophy className="size-5 text-gray-600" />,
+    title: "تماس با ما",
+    icon: <MessageCircleMore className="size-4 xl:size-5 text-gray-600" />,
+    href: "/contact",
     color: false,
     hover: false,
   },
   {
     id: 5,
-    title: "محبوب ترین",
-    icon: <Heart className="size-5 text-gray-600" />,
+    title: "درباره ما",
+
+    icon: <Heart className="size-4 xl:size-5 text-gray-600" />,
+    href: "/about",
     color: false,
     hover: false,
   },
-  { id: 6, title: "سوالات شما", color: false, hover: false },
+  { id: 6, title: "بلاگ", href: "/blog", color: false, hover: false },
 ];
 
 export const mockTabsListMenu = [
@@ -253,4 +277,33 @@ export const mockKitchenAppliances = {
       ],
     },
   ],
+};
+
+export const mobileMenu = [
+  { id: 1, title: "خانه", icon: <House className="size-5" />, href: "/" },
+  {
+    id: 2,
+    title: "دسته بندی",
+    icon: <LayoutGrid className="size-5 " />,
+    href: "/products",
+  },
+  {
+    id: 3,
+    title: "سبد خرید",
+    icon: <ShoppingCart className="size-5 " />,
+    href: "/cart",
+  },
+  {
+    id: 4,
+    title: "زی هوم من",
+    icon: <UserRound className="size-5" />,
+    href: "/dashboard/wallet",
+  },
+];
+
+export const mockNotFound = {
+  error: "۴۰۴",
+  text: "صفحه یافت نشد",
+  description: "این صفحه وجود ندارد یا حذف شده است!",
+  picture,
 };

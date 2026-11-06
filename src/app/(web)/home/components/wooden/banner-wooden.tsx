@@ -1,32 +1,21 @@
 /**@format */
 
-import { Button } from "@/components/ui/button";
-
-import background from "@public/pictures/home/banner_wooden.png";
-
-import { mockBannerWooden } from "../../data/mock-home";
-
-import { ChevronLeft } from "lucide-react";
+import bannerWooden from "@public/pictures/home/banner_wooden.png";
+import bannerMobile from "@public/pictures/home/banner-wooden-mobile.png";
 
 import Link from "next/link";
+import Image from "next/image";
 
 export function BannerWooden() {
   return (
-    <div
-      style={{ backgroundImage: `url(${background.src})` }}
-      className="flex flex-col gap-y-[30%] rounded-xl bg-cover px-[4%] pt-[4%] pb-15 aspect-5/1"
-    >
-      <div className="flex flex-col gap-y-3">
-        <p className="text-2xl text-white">{mockBannerWooden.title}</p>
-        <p className="text-base text-white">{mockBannerWooden.paragraph}</p>
-      </div>
+    <div>
       <Link href={"/products/category?categoryId=cmtn2zkej000bvtp0w5el41pz"}>
-        <Button size={"xl"} className="w-fit">
-          <div className="flex gap-x-3">
-            <p>مشاهده همه</p>
-            <ChevronLeft />
-          </div>
-        </Button>
+        <Image
+          src={bannerWooden}
+          alt="banner_wooden"
+          className="hidden md:flex rounded-lg aspect-5/1 lg:rounded-xl xl:rounded-2xl w-full"
+        />
+        <Image alt="banner_wooden" src={bannerMobile} className="md:hidden rounded-md" />
       </Link>
     </div>
   );
